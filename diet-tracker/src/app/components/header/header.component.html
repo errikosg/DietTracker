@@ -1,1 +1,14 @@
-<p>header works!</p>
+<div class="container">
+    <div class="nav-container">
+        <div>
+            <a class="title" [routerLink]="['/']"> {{ title }} </a>
+        </div>
+        <div class="nav-menu">
+            <button mat-button [matMenuTriggerFor]="menu" class="menu-button">Menu</button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Profile</button>
+              <button mat-menu-item (click)="onLogout()">Logout</button>
+            </mat-menu>
+        </div>
+    </div>
+</div>

@@ -2,3 +2,10 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+:root {
+    --main-color: #1E457C;
+    --hover-color: #0f223e;
+    --warn-color: #f44336;
+  }

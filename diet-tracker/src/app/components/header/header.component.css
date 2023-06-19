@@ -1,0 +1,36 @@
+.container{
+    background-color: var(--main-color);
+}
+
+.nav-container {
+    padding: 15px;
+    margin: auto;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title {
+    margin-top: 5%;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+}
+
+.menu-button{
+    font-size: 120%;
+}
+
+button, a {
+    color :white !important;
+}
+
+a:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+a:active, a:visited, a:link {
+    text-decoration: none;
+}
+

@@ -1,1 +1,46 @@
-<p>auth works!</p>
+<div class="container">
+    <h2> {{ submitButtonText }} </h2>
+        <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field *ngIf="!loginMode" class="form-field">
+                <mat-label>Username</mat-label>
+                <input matInput
+                    type="text" 
+                    name="name"
+                    formControlName="name"
+                    placeholder="Username ...">
+                <mat-error *ngIf="!form.get('name').valid && form.get('name').touched">
+                    Please enter a username
+                </mat-error>
+            </mat-form-field><br />
+
+            <mat-form-field class="form-field">
+                <mat-label>Email</mat-label>
+                <input matInput
+                    type="email" 
+                    name="email"
+                    formControlName="email"
+                    placeholder="Email ...">
+                <mat-error *ngIf="!form.get('email').valid && form.get('email').touched">
+                    Please enter a valid email address
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-field">
+                <mat-label>Password</mat-label>
+                <input matInput
+                    type="password" 
+                    name="password"
+                    formControlName="password"
+                    placeholder="Password ...">
+                <mat-error *ngIf="!form.get('password').valid && form.get('password').touched">
+                    Please enter a valid password
+                </mat-error>
+            </mat-form-field>
+
+            <i class="server-error-message" *ngIf="error"> {{error}} </i>
+            <div class="form-buttons">
+                <button mat-flat-button type="submit"> {{ submitButtonText }} </button><hr />
+                <button mat-flat-button type="button" (click)="onChangeMode()"> {{ changeButtonText }} </button>
+            </div>
+        </form>
+</div>
