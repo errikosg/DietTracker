@@ -54,7 +54,7 @@ export class AuthService {
     const userData: {
       email: string;
       name: string;
-      id: string;
+      _id: string;
       token: string;
     } = JSON.parse(localStorage.getItem('userData'));
 
@@ -63,7 +63,7 @@ export class AuthService {
     }
     const loadedUser : User = {
       email: userData.email,
-      _id: userData.id,
+      _id: userData._id,
       token: userData.token,
       name: userData.name
     };

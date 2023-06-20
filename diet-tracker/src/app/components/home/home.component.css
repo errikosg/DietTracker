@@ -1,0 +1,33 @@
+.nav-container {
+    height: 600px;
+}
+
+.drawer-container {
+    padding: 15px;
+    border-right: 2px solid var(--link-color);
+}
+
+.link-list {
+    margin-top: 10px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.link-list > div {
+    height: 45px;
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+a:active, a:visited, a:link {
+    text-decoration: none;
+}
+
+/* reactive? */

@@ -2,11 +2,17 @@
     <div class="nav-container">
         <div>
             <a class="title" [routerLink]="['/']"> {{ title }} </a>
+            <!-- <a class="food-search-link" [routerLink]="['']"> {{ title }} </a> -->
         </div>
         <div class="nav-menu">
-            <button mat-button [matMenuTriggerFor]="menu" class="menu-button">Menu</button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item>Profile</button>
+            <button mat-button [matMenuTriggerFor]="menu" class="menu-button"> 
+                <fa-icon [icon]="faUser"></fa-icon>
+                {{ currentUser && currentUser.name }} 
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>
+                    <a class="profile-link" [routerLink]="['profile']">Profile</a>
+                </button>
               <button mat-menu-item (click)="onLogout()">Logout</button>
             </mat-menu>
         </div>

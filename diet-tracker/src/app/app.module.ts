@@ -13,6 +13,10 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FoodListComponent } from './components/food-list/food-list.component';
+import { RecipesComponent } from './components/recipes/recipes.component';
+
 
 @NgModule({
   declarations: [
@@ -21,15 +25,18 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HeaderComponent,
     ProfileComponent,
     NotFoundComponent,
-    DashboardComponent
+    DashboardComponent,
+    FoodListComponent,
+    RecipesComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MaterialModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    MaterialModule,
+    FontAwesomeModule
   ],
   providers: [
     {

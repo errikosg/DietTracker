@@ -13,13 +13,17 @@
 
 .title {
     margin-top: 5%;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     display: block;
 }
 
 .menu-button{
-    font-size: 120%;
+    font-size: 110%;
+}
+
+.profile-link {
+    color: black !important;
 }
 
 button, a {
