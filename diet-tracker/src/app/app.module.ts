@@ -16,6 +16,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FoodListComponent } from './components/food-list/food-list.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
+import { FormsModule } from '@angular/forms';
+import { FoodInfoComponent } from './components/food-info/food-info.component';
 
 
 @NgModule({
@@ -27,12 +29,14 @@ import { RecipesComponent } from './components/recipes/recipes.component';
     NotFoundComponent,
     DashboardComponent,
     FoodListComponent,
-    RecipesComponent
+    RecipesComponent,
+    FoodInfoComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     AuthModule,
     MaterialModule,

@@ -10,7 +10,6 @@ import { ResponseDataFormat } from '../models/ResponseDataFormat';
 })
 export class AuthService {
   private serverURL: string = "http://localhost:3001/diet-tracker-api"
-  // foodbaseURL: string = "https://api.edamam.com/api/food-database/v2/parser"
   currentUser$ = new BehaviorSubject<User>(null);
   private httpOptions = {
     headers : new HttpHeaders ({

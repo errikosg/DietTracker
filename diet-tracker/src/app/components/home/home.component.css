@@ -3,6 +3,7 @@
 }
 
 .drawer-container {
+    width: 180px;
     padding: 15px;
     border-right: 2px solid var(--link-color);
 }
@@ -16,6 +17,11 @@
 
 .link-list > div {
     height: 45px;
+}
+
+.is-active {
+    color: var(--main-color);
+    font-weight: bold;
 }
 
 a {

@@ -6,19 +6,19 @@
         <mat-drawer #drawer class="drawer-container" mode="side" opened="true">
           <div class="link-list">
             <div>
-                <a [routerLink]="['']">
+                <a [routerLink]="['']" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
                     <fa-icon [icon]="faHouse"></fa-icon>
                     Home
                 </a>
             </div>
             <div>
-                <a [routerLink]="['recipes']">
+                <a [routerLink]="['recipes']" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
                     <fa-icon [icon]="faBook"></fa-icon>
                     Recipe Discovery
                 </a>
             </div>
             <div>
-                <a [routerLink]="['foodlist']">
+                <a [routerLink]="['foodlist']" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
                     <fa-icon [icon]="faFood"></fa-icon>
                     Food Base Search
                 </a>

@@ -1,1 +1,25 @@
-<p>food-list works!</p>
+<div class="container">
+    <div class="search">
+        <mat-form-field class="form-field">
+            <input matInput
+                type="text" 
+                class="food-search"
+                placeholder="Search foods ..."
+                [(ngModel)]="searchText">
+        </mat-form-field>
+        <div class="search-controls">
+            <button mat-flat-button
+                class="search-button"
+                (click)="onSubmit()"> SEARCH 
+            </button>
+            <p>hey</p>
+        </div>
+    </div>
+
+    <div class="food-list">
+        <app-food-info
+            *ngFor="let food of foodList"
+            [food]="food">
+        </app-food-info>
+    </div>
+</div>

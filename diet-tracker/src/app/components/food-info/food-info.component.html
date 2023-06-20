@@ -1,0 +1,63 @@
+<div class="container">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <div class="img-container">
+                        <img *ngIf="food.image, else altPhoto" src="{{ food.image }}" class="food-img">
+                        <ng-template #altPhoto>
+                            <fa-icon [icon]="faPhoto" class="alt-photo"></fa-icon>
+                        </ng-template>
+                    </div>
+                    <div class="food-title">
+                        {{ food.label }}
+                    </div>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="food-content">
+                <div class="food-info">
+                    <h3>Macros</h3>
+                    <div class="food-macros">
+                        <p class="food-macros-title">
+                            <fa-icon [icon]="faDotCircle" style="color:var(--calories-color)"></fa-icon>
+                            <span style="font-weight:bold">Calories</span>: {{ food.nutrients.calories }} kcal
+                        </p>
+                        <p class="food-macros-title">
+                            <fa-icon [icon]="faDotCircle" style="color:var(--carbs-color)"></fa-icon>
+                            <span style="font-weight:bold;">Carbs</span>: {{ food.nutrients.carbs }} g
+                        </p>
+                        <p class="food-macros-title">
+                            <fa-icon [icon]="faDotCircle" style="color:var(--fat-color)"></fa-icon>
+                            <span style="font-weight:bold;">Fat</span>: {{ food.nutrients.fat }} g
+                        </p>
+                        <p class="food-macros-title">
+                            <fa-icon [icon]="faDotCircle" style="color:var(--protein-color)"></fa-icon>
+                            <span style="font-weight:bold;">Protein</span>: {{ food.nutrients.protein }} g
+                        </p>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+                <h3>Percent of daily goals</h3>
+                <div class="food-percent-bars">
+                    <div class="macro-bar">
+                        <span>{{ foodPercentages.calories | number: '1.2-2' }}% Calories</span>
+                        <mat-progress-bar mode="determinate" [value]="foodPercentages.calories" class="calorie-bar"></mat-progress-bar>
+                    </div>
+                    <div class="macro-bar">
+                        <span>{{ foodPercentages.carbs | number: '1.2-2'}}% Carbs</span>
+                        <mat-progress-bar mode="determinate" [value]="foodPercentages.carbs" class="carbs-bar"></mat-progress-bar>
+                    </div>
+                    <div class="macro-bar">
+                        {{ foodPercentages.fat | number: '1.2-2'}}% Fat
+                        <mat-progress-bar mode="determinate" [value]="foodPercentages.fat" class="fat-bar"></mat-progress-bar>
+                    </div>
+                    <div class="macro-bar">
+                        {{ foodPercentages.protein | number: '1.2-2'}}% Protein
+                        <mat-progress-bar mode="determinate" [value]="foodPercentages.protein" class="protein-bar"></mat-progress-bar>
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      
+</div>
