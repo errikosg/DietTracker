@@ -7,6 +7,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatExpansionModule} from '@angular/material/expansion';  
 import {MatProgressBarModule} from '@angular/material/progress-bar'; 
 import {MatDividerModule} from '@angular/material/divider'; 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+import {MatPaginatorModule} from '@angular/material/paginator'; 
 
 @NgModule({
   declarations: [],
@@ -17,7 +19,9 @@ import {MatDividerModule} from '@angular/material/divider';
     MatSidenavModule,
     MatExpansionModule,
     MatProgressBarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }

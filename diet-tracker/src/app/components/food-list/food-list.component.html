@@ -12,13 +12,23 @@
                 class="search-button"
                 (click)="onSubmit()"> SEARCH 
             </button>
-            <p>hey</p>
+            <button mat-stroked-button *ngIf="foodList.length > 0"
+                class="clear-button"
+                (click)="onClearList()"> CLEAR 
+            </button>
         </div>
     </div>
 
+    <mat-paginator *ngIf="foodList.length > 0"
+        [length]="foodList.length"
+        [pageSize]="pageSize"
+        [hidePageSize]="true"
+        (page)="onPageChange($event)">
+    </mat-paginator> 
     <div class="food-list">
+        <mat-spinner *ngIf="isLoading" [diameter]="70"></mat-spinner>
         <app-food-info
-            *ngFor="let food of foodList"
+            *ngFor="let food of shownFoodList"
             [food]="food">
         </app-food-info>
     </div>

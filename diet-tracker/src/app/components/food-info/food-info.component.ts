@@ -38,6 +38,5 @@ export class FoodInfoComponent implements OnInit{
     this.foodPercentages.carbs = (carbs/this.macroGoals.carbs)*100;
     this.foodPercentages.fat = (fat/this.macroGoals.fat)*100;
     this.foodPercentages.protein = (protein/this.macroGoals.protein)*100;
-    console.log(typeof(this.foodPercentages.calories))
   }
 }

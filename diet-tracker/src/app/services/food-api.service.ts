@@ -1,12 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Food } from '../models/Food';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { Measure } from '../models/Measure';
+import { Nutrients } from "../models/Nutrients";
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class FoodAPIService {
   foodbaseURL: string = "https://api.edamam.com/api/food-database/v2/parser"
-  mock_foods: Food[] = [
+  private searchParams = new HttpParams()
+    .set("app_id", "945d4415")
+    .set("app_key","d04242888de640d321df51a3c7db7fe9")
+    .set("nutrition-type","cooking")
+    .set("category","generic-foods")
+  
+  private searchHeaders = new HttpHeaders ({
+    'Content-type': 'application/json;'
+  })
+  // private httpOptions = {
+  //   headers : new HttpHeaders ({
+  //     'Content-type': 'application/json;'
+  //   }),
+  //   params: this.searchParams
+  // }
+
+  mockFoods: Food[] = [
     {
       foodId: 'food_a1gb9ubb72c7snbuxr3weagwv0dd',
       label: 'Apple',
@@ -91,11 +113,57 @@ export class FoodAPIService {
     }
   ]
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  getFoods(searchText: string) {
-    // http....
-    if(searchText === "") return []
-    return this.mock_foods
+  getMockData() {
+    return this.mockFoods
+  }
+
+  getFoods(searchText: string): Observable<Food[]> {
+    // set headers, params
+    let sParams = this.searchParams;
+    sParams = sParams.append("ingr", searchText)
+    const httpOptions = {
+      headers: this.searchHeaders,
+      params: sParams
+    }
+    // return 
+    return this.http.get(this.foodbaseURL, httpOptions).pipe(
+      map(resData => {
+        console.log(resData)
+        return this.extractResponseData(resData)
+      })
+    )
+  }
+
+  extractResponseData(resData: any): Food[] {
+    let foods:Food[] = []
+    for(let hint of resData.hints){
+      const {foodId,label,nutrients,image} = hint.food;
+      let measures: Measure[] = []
+      for(let measure of hint.measures){
+        measures.push({label:measure.label, weight:measure.weight})
+      }
+      // fix nutrients
+      const nutrientsFixed:Nutrients = {
+        calories: nutrients.ENERC_KCAL,
+        carbs: nutrients.CHOCDF,
+        fat: nutrients.FAT,
+        protein: nutrients.PROCNT
+      }
+
+      // assign
+      foods.push({
+        foodId: foodId,
+        label: label,
+        nutrients: nutrientsFixed,
+        image: image,
+        measures: measures
+      })
+    }
+    console.log(foods)
+    return foods
   }
 }

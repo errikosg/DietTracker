@@ -29,7 +29,17 @@
 .search-button:hover {
     background-color: var(--hover-color) !important;
 }
-
-.food-list {
-    margin-top: 30px;
+.clear-button{
+    width: 20%;
 }
+
+mat-paginator {
+    margin-top: 30px;
+    background-color: transparent;
+}
+mat-spinner {
+    margin: auto;
+}
+:host::ng-deep .mdc-circular-progress__indeterminate-circle-graphic {
+    stroke: var(--main-color) !important;
+  }
