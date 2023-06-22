@@ -9,6 +9,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatDividerModule} from '@angular/material/divider'; 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 import {MatPaginatorModule} from '@angular/material/paginator'; 
+import {MatTabsModule} from '@angular/material/tabs'; 
+import {MatDialogModule} from '@angular/material/dialog'; 
 
 @NgModule({
   declarations: [],
@@ -21,7 +23,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatProgressBarModule,
     MatDividerModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTabsModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }

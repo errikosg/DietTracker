@@ -1,0 +1,12 @@
+.password-form {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    background-color: var(--main-color) !important;
+    color :white !important;
+    width: 30%;
+    margin: auto;
+    margin-top: 15px;
+}

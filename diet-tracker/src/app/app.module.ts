@@ -16,8 +16,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FoodListComponent } from './components/food-list/food-list.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FoodInfoComponent } from './components/food-info/food-info.component';
+import { NameFormComponent } from './components/forms/name-form/name-form.component';
+import { EmailFormComponent } from './components/forms/email-form/email-form.component';
+import { EmailFormDialogComponent } from './components/forms/email-form-dialog/email-form-dialog.component';
+import { PassFormComponent } from './components/forms/pass-form/pass-form.component';
 
 
 @NgModule({
@@ -30,13 +34,18 @@ import { FoodInfoComponent } from './components/food-info/food-info.component';
     DashboardComponent,
     FoodListComponent,
     RecipesComponent,
-    FoodInfoComponent
+    FoodInfoComponent,
+    NameFormComponent,
+    EmailFormComponent,
+    EmailFormDialogComponent,
+    PassFormComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AuthModule,
     MaterialModule,

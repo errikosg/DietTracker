@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="pass-form-container" *ngIf="!authorized; else emailForm">
+        <h2>Confirm Identity</h2>
+        <mat-divider></mat-divider>
+        <i class="description">Please re-enter your password to continue</i>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput 
+                placeholder="Your password ..." 
+                type="password"
+                name="password"
+                [(ngModel)]="password">
+            <!-- <mat-error *ngIf="nameFormControls['name'].errors && !nameFormControls['name'].pristine">Please add a username</mat-error> -->
+        </mat-form-field>
+        <div class="pass-buttons">
+            <button mat-flat-button class="submit-button" (click)="onEnterPassword()">CONTINUE</button>
+            <button mat-stroked-button (click)="onCancel()">CANCEL</button>
+        </div>
+    </div>
+
+    <ng-template #emailForm>
+
+    </ng-template>
+</div>

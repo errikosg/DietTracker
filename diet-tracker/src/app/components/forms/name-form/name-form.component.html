@@ -1,0 +1,14 @@
+<div class="form-container">
+    <form class="name-form" [formGroup]="nameForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput 
+                placeholder="Your username..." 
+                type="text"
+                name="name"
+                formControlName="name">
+            <mat-error *ngIf="nameFormControls['name'].errors && !nameFormControls['name'].pristine">Please add a username</mat-error>
+        </mat-form-field>
+        <button mat-flat-button type="submit">SUBMIT</button>
+    </form>
+</div>

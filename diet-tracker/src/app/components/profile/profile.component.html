@@ -1,1 +1,31 @@
-<p>profile works!</p>
+<div class="container">
+    <h2 class="user-name"> {{ currentUser.name }} </h2>
+    <div class="tabs-container">
+        <mat-tab-group animationDuration="0ms">
+            <mat-tab label="Overview">
+                <p>here will go the measures</p>
+                <p>here will go the measures</p>
+                <p>here will go the measures</p>
+                <mat-divider></mat-divider>
+                <p>here will go goals etc</p>
+                <p>here will go goals etc</p>
+                <p>here will go goals etc</p>
+
+            </mat-tab>
+
+            <mat-tab label="Profile Info">
+                <div class="prof-info-container">
+                    <div class="info-box">
+                        <app-name-form></app-name-form>
+                    </div>
+                    <div class="email form info-box">
+                        <app-email-form></app-email-form>
+                    </div>
+                    <div class="password-form info-box">
+                        <app-pass-form></app-pass-form>
+                    </div>
+                </div>
+            </mat-tab>
+          </mat-tab-group>
+    </div>
+</div>

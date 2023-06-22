@@ -1,0 +1,30 @@
+.container {
+    border: 1px solid;
+}
+
+.user-name {
+    font-style: italic;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* .tabs-container {
+    border: 1px solid;
+} */
+
+
+/* proifle info */
+.prof-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.info-box {
+    border: 1px solid grey;
+    border-radius: 8px;
+    padding: 15px;
+    width: 50%;
+    margin: auto;
+}

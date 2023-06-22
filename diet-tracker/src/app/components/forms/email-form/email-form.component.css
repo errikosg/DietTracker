@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.change-email-text {
+    color: var(--main-color);
+    text-align: center;
+}
+
+.change-email-text:hover {
+    text-decoration: underline;
+    color: var(--hover-color);
+    cursor: pointer;
+}

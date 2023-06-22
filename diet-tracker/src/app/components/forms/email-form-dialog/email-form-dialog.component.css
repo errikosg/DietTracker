@@ -1,0 +1,25 @@
+.pass-form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.description {
+    margin-bottom: 10px;
+}
+
+.pass-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:70%;
+    margin:auto;
+    margin-top: 15px;
+}
+.pass-buttons > button {
+    width:40%
+}
+.submit-button {
+    background-color: var(--main-color) !important;
+    color :white !important;
+}

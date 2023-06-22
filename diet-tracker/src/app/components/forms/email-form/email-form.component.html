@@ -1,0 +1,12 @@
+<div class="container">
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput 
+            placeholder="Your email ..." 
+            type="email"
+            [value]="currentUser.email"
+            disabled>
+        <!-- <mat-error *ngIf="nameFormControls['name'].errors && !nameFormControls['name'].pristine">Please add a username</mat-error> -->
+    </mat-form-field>
+    <p class="change-email-text" (click)="onOpenFormDialog()">Change Email Address</p>
+</div>
