@@ -1,4 +1,4 @@
-.pass-form-container {
+.pass-form-container, .email-form-container {
     display: flex;
     flex-direction: column;
     padding: 15px;
@@ -22,4 +22,9 @@
 .submit-button {
     background-color: var(--main-color) !important;
     color :white !important;
+}
+.server-error-message {
+    font-size: 90%;
+    color: var(--warn-color);
+    padding-left: 10px;
 }

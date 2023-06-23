@@ -25,7 +25,6 @@ export class ProfileComponent implements OnInit{
       take(1),
       map(user => {
         this.currentUser = user
-        console.log(user)
       })
     ).subscribe()
   }

@@ -1,5 +1,6 @@
 <div class="form-container">
-    <form class="password-form" [formGroup]="passForm" (ngSubmit)="onSubmit()">
+    <form class="password-form" [formGroup]="passForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)" >
+        <h2>Change Password</h2>
         <mat-form-field>
             <mat-label>Current Password</mat-label>
             <input matInput 
@@ -7,6 +8,9 @@
                 type="password"
                 name="password"
                 formControlName="currentPass">
+            <mat-error *ngIf="!passForm.get('currentPass').valid && passForm.get('currentPass').touched">
+                Please enter your current password
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field>
@@ -25,8 +29,12 @@
                 type="password"
                 name="password"
                 formControlName="confirmPass">
+            <mat-error *ngIf="!passForm.get('confirmPass').valid && passForm.get('confirmPass').touched">
+                Please confirm new password correctly
+            </mat-error>
         </mat-form-field>
 
+        <i class="server-error-message" *ngIf="error"> {{error}} </i>
         <button mat-flat-button type="submit">SUBMIT</button>
     </form>
 </div>

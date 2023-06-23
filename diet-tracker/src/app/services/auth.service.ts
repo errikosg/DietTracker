@@ -19,7 +19,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  signup(user: User) {
+  signup(user: User): Observable<ResponseDataFormat> {
     const url = `${this.serverURL}/users`
     return this.http.post<ResponseDataFormat>(url, user, this.httpOptions)
       .pipe(catchError(this.handleError),
@@ -28,7 +28,7 @@ export class AuthService {
       }))
   }
 
-  login(user: {[key:string]: string}) {
+  login(user: {[key:string]: string}): Observable<ResponseDataFormat> {
     const url = `${this.serverURL}/users/login`
     return this.http.post<ResponseDataFormat>(url, user, this.httpOptions)
       .pipe(catchError(this.handleError),
@@ -40,12 +40,41 @@ export class AuthService {
   logout(){
     const url = `${this.serverURL}/users/logout`
     this.http.post(url, null).subscribe(res => {
-      console.log(res);
       // cleanup
       this.currentUser$.next(null);
       localStorage.removeItem('userData')
       this.router.navigate(["/auth"]);
     })
+  }
+
+  updateName(name: string): Observable<ResponseDataFormat> {
+    const url = `${this.serverURL}/users/name`;
+    return this.http.patch<ResponseDataFormat>(url, { name }, this.httpOptions)
+      .pipe(catchError(this.handleError),
+        tap(resData => {
+          this.handleUpdate(resData, {name})
+        }))
+  }
+
+  updateEmail(email:string): Observable<ResponseDataFormat> {
+    const url = `${this.serverURL}/users/email`;
+    return this.http.patch<ResponseDataFormat>(url, { email }, this.httpOptions)
+      .pipe(catchError(this.handleError),
+        tap(resData => {
+          this.handleUpdate(resData, {email})
+        }))
+  }
+
+  updatePassword(password:string): Observable<ResponseDataFormat> {
+    const url = `${this.serverURL}/users/password`;
+    return this.http.patch<ResponseDataFormat>(url, { password }, this.httpOptions)
+      .pipe(catchError(this.handleError))
+  }
+
+  confirmPassword(password: string) {
+    const url = `${this.serverURL}/users/confirm`;
+    return this.http.post<any>(url, { password }, this.httpOptions)
+    .pipe(catchError(this.handleError))
   }
 
   // extra
@@ -77,6 +106,19 @@ export class AuthService {
     user.token = token;
     this.currentUser$.next(user);
     localStorage.setItem('userData', JSON.stringify(user));
+  }
+
+  handleUpdate(resData: ResponseDataFormat, value: {[key:string]: string}){
+    const {user, token} = resData
+    user.token = token;
+    this.currentUser$.next(user);
+
+    // update local storage
+    let userData = JSON.parse(localStorage.getItem('userData'));
+
+    // ex. value: {name:"Errikos"} or {email:"test@hotmai.com"}
+    userData[Object.keys(value)[0]] = user[Object.keys(value)[0]];
+    localStorage.setItem('userData', JSON.stringify(userData));
   }
 
   private handleError(error: HttpErrorResponse) {

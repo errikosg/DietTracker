@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { take, map } from 'rxjs';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { take, map, switchMap } from 'rxjs';
 import { User } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
 import { CustomValidationService } from 'src/app/services/custom-validation.service';
@@ -13,10 +14,12 @@ import { CustomValidationService } from 'src/app/services/custom-validation.serv
 export class PassFormComponent {
   currentUser: User = null;
   passForm: FormGroup;
+  error: string = null;
 
   constructor(
     private authService: AuthService,
-    private customValidation: CustomValidationService
+    private customValidation: CustomValidationService,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -40,8 +43,38 @@ export class PassFormComponent {
     return this.passForm.controls
   }
 
-  onSubmit() {
-    console.log(this.passForm.value)
-    console.log(this.passForm.valid)
+  onSubmit(formDirective: FormGroupDirective) {
+    if(this.passForm.valid){
+      const { currentPass, newPass, confirmPass } = this.passForm.value;
+      // password match check (again)
+      if(newPass !== confirmPass){
+        this.error = "Please confirm new password correctly";
+      }
+      else{
+        // current password check
+        this.authService.confirmPassword(currentPass)
+          .pipe(
+            switchMap(() => {
+              return this.authService.updatePassword(newPass);
+            })
+          )
+        .subscribe({
+          next: () => this.nextHandler(formDirective),
+          error: (err) => this.errorHandler(err)
+        })
+      }
+    }
+  }
+
+  nextHandler(formDirective: FormGroupDirective) {
+    this.error = null;
+    this.passForm.reset();
+    formDirective.resetForm();
+    this.snackBar.open("Password updated successfully", null, { duration: 1500 });
+
+  }
+
+  errorHandler(err: string){
+    this.error = err;
   }
 }

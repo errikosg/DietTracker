@@ -14,3 +14,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --fat-color: rgb(129,6,144);
     --protein-color: rgb(245,182,19);
   }
+
+h2 {
+  text-align: center;
+}

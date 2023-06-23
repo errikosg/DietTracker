@@ -10,3 +10,9 @@ button {
     margin: auto;
     margin-top: 15px;
 }
+
+.server-error-message {
+    font-size: 90%;
+    color: var(--warn-color);
+    padding-left: 10px;
+}

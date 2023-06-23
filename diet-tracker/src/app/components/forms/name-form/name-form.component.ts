@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subscription } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { User } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,17 +11,20 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './name-form.component.html',
   styleUrls: ['./name-form.component.css']
 })
-export class NameFormComponent implements OnInit{
+export class NameFormComponent implements OnInit, OnDestroy{
   currentUser: User = null;
   nameForm: FormGroup;
+  error: string = null;
+  subscription$: Subscription;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private snackBar: MatSnackBar
   ) {}
 
   
   ngOnInit(): void {
-    // get current user
+    // get initial user
     this.authService.currentUser$.pipe(
       take(1),
       map(user => {
@@ -31,6 +36,13 @@ export class NameFormComponent implements OnInit{
         })
       })
     ).subscribe()
+
+    // setup subscription
+    this.subscription$ = this.authService.currentUser$.subscribe(user => {
+      if(user) {
+        this.currentUser = user
+      }
+    })
   }
 
   get nameFormControls() {
@@ -38,6 +50,23 @@ export class NameFormComponent implements OnInit{
   }
 
   onSubmit() {
-    console.log(this.nameForm.value)
+    const {name} = this.nameForm.value
+    this.authService.updateName(name).subscribe({
+      next: () => this.nextHandler(),
+      error: (err) => this.errorHandler(err)
+    })
+  }
+
+  nextHandler() {
+    this.error = null;
+    this.snackBar.open("Username updated successfully", null, { duration: 1500 });
+  }
+
+  errorHandler(err: string){
+    this.error = err;
+  }
+
+  ngOnDestroy(): void {
+    this.subscription$.unsubscribe()
   }
 }

@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="pass-form-container" *ngIf="!authorized; else emailForm">
+    <div class="pass-form-container" *ngIf="!authorized; else emailFormTemp">
         <h2>Confirm Identity</h2>
         <mat-divider></mat-divider>
         <i class="description">Please re-enter your password to continue</i>
@@ -9,16 +9,35 @@
                 placeholder="Your password ..." 
                 type="password"
                 name="password"
-                [(ngModel)]="password">
-            <!-- <mat-error *ngIf="nameFormControls['name'].errors && !nameFormControls['name'].pristine">Please add a username</mat-error> -->
+                [(ngModel)]="password"
+                required>
         </mat-form-field>
+        <i class="server-error-message" *ngIf="error"> {{error}} </i>
         <div class="pass-buttons">
             <button mat-flat-button class="submit-button" (click)="onEnterPassword()">CONTINUE</button>
             <button mat-stroked-button (click)="onCancel()">CANCEL</button>
         </div>
     </div>
 
-    <ng-template #emailForm>
-
+    <ng-template #emailFormTemp>
+        <form [formGroup]="emailForm" (ngSubmit)="onSubmit()" class="email-form-container">
+            <i class="description">Enter your new email</i>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput 
+                    placeholder="New email ..." 
+                    type="email"
+                    name="email"
+                    formControlName="email">
+                <mat-error *ngIf="!emailForm.get('email').valid && emailForm.get('email').touched">
+                    Please enter a valid email
+                </mat-error>
+            </mat-form-field>
+            <i class="server-error-message" *ngIf="error"> {{error}} </i>
+            <div class="pass-buttons">
+                <button mat-flat-button class="submit-button" type="submit">SUBMIT</button>
+                <button mat-stroked-button (click)="onCancel()">CANCEL</button>
+            </div>
+        </form>
     </ng-template>
 </div>

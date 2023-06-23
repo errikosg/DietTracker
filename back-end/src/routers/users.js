@@ -12,7 +12,10 @@ const router = new express.Router();
 // @desc    Get users profile
 // @access  Private
 router.get('/me', auth, async (req, res) => {
-    res.status(200).send(req.user);
+    res.status(200).send({
+        user: req.user,
+        token: req.token
+    });
 });
 
 // @route   POST diet-tracker-api/users
@@ -99,10 +102,8 @@ router.delete('/me', auth, async (req, res) => {
 // @access  Private
 router.post('/confirm', auth, async (req, res) => {
     try {
-        await User.matchPasswords(req.body.password, user.password);
-        res.status(200).send({
-            user:req.user
-        });
+        await User.matchPasswords(req.body.password, req.user.password);
+        res.status(200).send({msg: 'Passwords matched'});
     } catch (e) {
         res.status(400).send({ error: e.message });
     }
@@ -113,10 +114,12 @@ router.post('/confirm', auth, async (req, res) => {
 // @access  Private
 router.patch('/name', auth, async (req, res) => {
     try {
+        console.log(req.user)
         req.user.name = req.body.name;
         await req.user.save();
         res.status(200).send({
-            user: req.user
+            user: req.user,
+            token: req.token
         });
     } catch (e) {
         res.status(400).send({ error: e.message });
@@ -131,7 +134,8 @@ router.patch('/email', auth, async (req, res) => {
         req.user.email = req.body.email;
         await req.user.save();
         res.status(200).send({
-            user: req.user
+            user: req.user,
+            token: req.token
         });
     } catch (e) {
         res.status(400).send({ error: e.message });
