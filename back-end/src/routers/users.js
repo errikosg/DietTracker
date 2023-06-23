@@ -94,5 +94,64 @@ router.delete('/me', auth, async (req, res) => {
     }
 });
 
+// @route   POST diet-tracker-api/users/confirm
+// @desc    For a logged in user, re-enter password to confirm identity.
+// @access  Private
+router.post('/confirm', auth, async (req, res) => {
+    try {
+        await User.matchPasswords(req.body.password, user.password);
+        res.status(200).send({
+            user:req.user
+        });
+    } catch (e) {
+        res.status(400).send({ error: e.message });
+    }
+});
+
+// @route   PATCH diet-tracker-api/users/name
+// @desc    Update user's name.
+// @access  Private
+router.patch('/name', auth, async (req, res) => {
+    try {
+        req.user.name = req.body.name;
+        await req.user.save();
+        res.status(200).send({
+            user: req.user
+        });
+    } catch (e) {
+        res.status(400).send({ error: e.message });
+    }
+});
+
+// @route   PATCH diet-tracker-api/users/email
+// @desc    Update user's email.
+// @access  Private
+router.patch('/email', auth, async (req, res) => {
+    try {
+        req.user.email = req.body.email;
+        await req.user.save();
+        res.status(200).send({
+            user: req.user
+        });
+    } catch (e) {
+        res.status(400).send({ error: e.message });
+    }
+});
+
+// @route   PATCH diet-tracker-api/users/password
+// @desc    Update user's password.
+// @access  Private
+router.patch('/password', auth, async (req, res) => {
+    try {
+        req.user.password = req.body.password;
+        await req.user.save();
+        res.status(200).send({msg: 'Password updated'});
+    } catch (e) {
+        res.status(400).send({ error: e.message });
+    }
+});
+
+
+
 
 module.exports = router

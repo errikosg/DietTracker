@@ -87,6 +87,16 @@ userSchema.pre('save', async function (next) {
     next();
 })
 
+userSchema.statics.matchPasswords = async (confirmPass, currentPass) => {
+    //verify password
+    const isMatch = await bcrypt.compare(confirmPass, currentPass);
+
+    if(!isMatch){
+        throw new Error('Wrong password given');
+    }
+    return true;
+}
+
 //delete user's recipes when the user is removed ...
 
 const User = mongoose.model("User", userSchema);
