@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, map, take } from 'rxjs';
 import { User } from 'src/app/models/User';
-import { AuthService } from 'src/app/services/auth.service';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-header',

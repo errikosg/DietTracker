@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Food } from 'src/app/models/Food';
-import { FoodAPIService } from 'src/app/services/food-api.service';
+import { FoodAPIService } from 'src/app/services/food-api/food-api.service';
 
 @Component({
   selector: 'app-food-list',

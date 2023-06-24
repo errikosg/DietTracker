@@ -3,8 +3,9 @@ import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { take, map, switchMap } from 'rxjs';
 import { User } from 'src/app/models/User';
-import { AuthService } from 'src/app/services/auth.service';
-import { CustomValidationService } from 'src/app/services/custom-validation.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { CustomValidationService } from 'src/app/services/custom-validation/custom-validation.service';
+
 
 @Component({
   selector: 'app-pass-form',

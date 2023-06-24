@@ -4,9 +4,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from 'src/app/components/auth/auth.component';
 import { MaterialModule } from '../shared/material/material.module';
-import { PreventLoginAccessService } from 'src/app/services/prevent-login-access.service';
 import { NotFoundComponent } from 'src/app/components/not-found/not-found.component';
-import { AuthGuardService } from 'src/app/services/auth-guard.service';
+import { AuthGuardService } from 'src/app/services/auth-guard/auth-guard.service';
+import { PreventLoginAccessService } from 'src/app/services/prevent-login-access/prevent-login-access.service';
 
 const routes: Routes = [
   { path:'auth', component: AuthComponent, canActivate:[PreventLoginAccessService] },

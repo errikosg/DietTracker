@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
-import { User } from '../models/User';
+import { User } from '../../models/User';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { ResponseDataFormat } from '../models/ResponseDataFormat';
+import { ResponseDataFormat } from 'src/app/models/ResponseDataFormat';
 
 @Injectable({
   providedIn: 'root'

@@ -2,9 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { take, map, Subscription } from 'rxjs';
 import { User } from 'src/app/models/User';
-import { AuthService } from 'src/app/services/auth.service';
 import { EmailFormDialogComponent } from '../email-form-dialog/email-form-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-email-form',

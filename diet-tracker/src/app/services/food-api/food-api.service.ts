@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Food } from '../models/Food';
+import { Food } from '../../models/Food';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Measure } from '../models/Measure';
-import { Nutrients } from "../models/Nutrients";
+import { Measure } from '../../models/Measure';
+import { Nutrients } from "../../models/Nutrients";
 import { Observable } from 'rxjs';
 
 
