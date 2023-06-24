@@ -22,6 +22,8 @@ import { NameFormComponent } from './components/forms/name-form/name-form.compon
 import { EmailFormComponent } from './components/forms/email-form/email-form.component';
 import { EmailFormDialogComponent } from './components/forms/email-form-dialog/email-form-dialog.component';
 import { PassFormComponent } from './components/forms/pass-form/pass-form.component';
+import { DeleteAccountComponent } from './components/forms/delete-account/delete-account.component';
+import { DeleteAccountDialogComponent } from './components/forms/delete-account-dialog/delete-account-dialog.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { PassFormComponent } from './components/forms/pass-form/pass-form.compon
     NameFormComponent,
     EmailFormComponent,
     EmailFormDialogComponent,
-    PassFormComponent
+    PassFormComponent,
+    DeleteAccountComponent,
+    DeleteAccountDialogComponent
   ],
   imports: [
     BrowserModule,

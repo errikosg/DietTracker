@@ -1,0 +1,30 @@
+.dialog-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.description {
+    margin-bottom: 10px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:70%;
+    margin:auto;
+    margin-top: 15px;
+}
+.buttons > button {
+    width:40%
+}
+.submit-button {
+    background-color: var(--warn-color) !important;
+    color :white !important;
+}
+.server-error-message {
+    font-size: 90%;
+    color: var(--warn-color);
+    padding-left: 10px;
+}

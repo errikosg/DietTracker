@@ -40,10 +40,7 @@ export class AuthService {
   logout(){
     const url = `${this.serverURL}/users/logout`
     this.http.post(url, null).subscribe(res => {
-      // cleanup
-      this.currentUser$.next(null);
-      localStorage.removeItem('userData')
-      this.router.navigate(["/auth"]);
+      this.clearUser();
     })
   }
 
@@ -74,7 +71,14 @@ export class AuthService {
   confirmPassword(password: string) {
     const url = `${this.serverURL}/users/confirm`;
     return this.http.post<any>(url, { password }, this.httpOptions)
-    .pipe(catchError(this.handleError))
+      .pipe(catchError(this.handleError))
+  }
+
+  deleteAccount() {
+    const url = `${this.serverURL}/users/me`;
+    this.http.delete(url, this.httpOptions).subscribe(res => {
+      this.clearUser()
+    })
   }
 
   // extra
@@ -101,21 +105,20 @@ export class AuthService {
     }
   }
 
-  handleAuthentication(resData: ResponseDataFormat){
+  private handleAuthentication(resData: ResponseDataFormat){
     const {user, token} = resData
     user.token = token;
     this.currentUser$.next(user);
     localStorage.setItem('userData', JSON.stringify(user));
   }
 
-  handleUpdate(resData: ResponseDataFormat, value: {[key:string]: string}){
+  private handleUpdate(resData: ResponseDataFormat, value: {[key:string]: string}){
     const {user, token} = resData
     user.token = token;
     this.currentUser$.next(user);
 
     // update local storage
     let userData = JSON.parse(localStorage.getItem('userData'));
-
     // ex. value: {name:"Errikos"} or {email:"test@hotmai.com"}
     userData[Object.keys(value)[0]] = user[Object.keys(value)[0]];
     localStorage.setItem('userData', JSON.stringify(userData));
@@ -130,5 +133,12 @@ export class AuthService {
         `Backend returned code ${error.status}, body was: `, error.error);
       return throwError(() => new Error(error.error.error));
     }
+  }
+
+  private clearUser() {
+    // cleanup
+    this.currentUser$.next(null);
+    localStorage.removeItem('userData')
+    this.router.navigate(["/auth"]);
   }
 }

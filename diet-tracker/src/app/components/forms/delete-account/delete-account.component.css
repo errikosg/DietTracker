@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-account-btn {
+    background-color: var(--warn-color) !important;
+    color :white !important;
+    width: 30%;
+    margin: auto;
+    margin-top: 15px;
+}
