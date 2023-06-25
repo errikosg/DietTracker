@@ -39,6 +39,14 @@ const userSchema = new mongoose.Schema({
     }],
 })
 
+// virtual attributes
+userSchema.virtual('macroGoals', {
+    ref : 'MacroGoals',     //reference to MacroGoals model
+    localField : '_id',
+    foreignField : 'owner'
+});
+
+
 // methods
 userSchema.methods.generateAuthToken = async function() {
     const user = this ;

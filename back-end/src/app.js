@@ -12,4 +12,8 @@ const baseURL = process.env.BASE_URL || ''
 const usersRouter = require('./routers/users');
 app.use(`${baseURL}/users`, usersRouter);
 
+//macro-goals
+const mgoalsRouter = require('./routers/macroGoals');
+app.use(`${baseURL}/macro-goals`, mgoalsRouter);
+
 module.exports = app

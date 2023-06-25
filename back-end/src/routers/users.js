@@ -1,14 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require("../db/schemas/User");
-const bcrypt = require('bcryptjs');
 const auth = require('../middleware/auth');
-const mongodb = require('mongodb');
 
 const router = new express.Router();
 
 /***  ENDPOINTS ***/
-// @route   GET p-tracker-api/users/me
+// @route   GET diet-tracker-api/users/me
 // @desc    Get users profile
 // @access  Private
 router.get('/me', auth, async (req, res) => {
@@ -114,7 +112,6 @@ router.post('/confirm', auth, async (req, res) => {
 // @access  Private
 router.patch('/name', auth, async (req, res) => {
     try {
-        console.log(req.user)
         req.user.name = req.body.name;
         await req.user.save();
         res.status(200).send({
