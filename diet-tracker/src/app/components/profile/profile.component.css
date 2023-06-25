@@ -1,10 +1,7 @@
-.user-name {
-    font-style: italic;
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
+/* profile overview */
+h2 {
+    text-align: left;
 }
-
 
 /* proifle info */
 .prof-info-container {

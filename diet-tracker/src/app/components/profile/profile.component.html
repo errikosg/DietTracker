@@ -1,16 +1,9 @@
 <div class="container">
-    <h2 class="user-name"> {{ currentUser.name }} </h2>
     <div class="tabs-container">
         <mat-tab-group animationDuration="0ms">
             <mat-tab label="Overview">
-                <p>here will go the measures</p>
-                <p>here will go the measures</p>
-                <p>here will go the measures</p>
-                <mat-divider></mat-divider>
-                <p>here will go goals etc</p>
-                <p>here will go goals etc</p>
-                <p>here will go goals etc</p>
-
+                <h2>Your daily macro goals</h2>
+                <app-macro-goals-display></app-macro-goals-display>
             </mat-tab>
 
             <mat-tab label="Profile Info">

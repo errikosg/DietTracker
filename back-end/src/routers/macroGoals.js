@@ -10,13 +10,13 @@ const router = new express.Router();
 // @desc    Add new portfolio?
 // @access  Private
 router.post('/', auth, async (req,res) => {
-    const mgoals = new MacroGoals({
+    const macros = new MacroGoals({
         ...req.body,
         owner: req.user._id
     })
     try{
-        await mgoals.save();
-        res.status(201).send(mgoals);
+        await macros.save();
+        res.status(201).send(macros);
     }catch(e){
         res.status(400).send(e);
     }
@@ -27,8 +27,8 @@ router.post('/', auth, async (req,res) => {
 // @access  Private
 router.get('/', auth, async (req, res) => {
     try {
-        const mgoals = await MacroGoals.findOne({ owner : req.user._id});
-        res.status(200).send(mgoals);
+        const macros = await MacroGoals.findOne({ owner : req.user._id});
+        res.status(200).send(macros);
     }catch(e){
         res.status(400).send(e);
     }
@@ -39,18 +39,18 @@ router.get('/', auth, async (req, res) => {
 // @access  Private
 router.patch('/', auth, async (req, res) => {
     try {
-        let mgoals = await MacroGoals.findOne({ owner : req.user._id});
+        let macros = await MacroGoals.findOne({ owner : req.user._id});
         
         if(req.body.calories)
-            mgoals.calories = req.body.calories;
+            macros.calories = req.body.calories;
         if(req.body.protein)
-            mgoals.protein = req.body.protein;
+            macros.protein = req.body.protein;
         if(req.body.fat)
-            mgoals.fat = req.body.fat;
+            macros.fat = req.body.fat;
         if(req.body.carbs)
-            mgoals.carbs = req.body.carbs;
-        await mgoals.save();
-        res.status(201).send(mgoals);
+            macros.carbs = req.body.carbs;
+        await macros.save();
+        res.status(201).send(macros);
     }catch(e){
         res.status(400).send(e);
     }
@@ -61,8 +61,8 @@ router.patch('/', auth, async (req, res) => {
 // @access  Private
 router.delete('/', auth, async (req, res) => {
     try {
-        const mgoals = await MacroGoals.findOne({ owner : req.user._id});
-        await MacroGoals.findByIdAndRemove(mgoals._id);
+        const macros = await MacroGoals.findOne({ owner : req.user._id});
+        await MacroGoals.findByIdAndRemove(macros._id);
         res.status(200).send({msg: 'Goals removed'});
     } catch (e) {
         //Bad request

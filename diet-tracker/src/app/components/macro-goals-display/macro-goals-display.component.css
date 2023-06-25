@@ -1,0 +1,19 @@
+.container {
+    border: 1px solid;
+}
+.calories, .protein, .fat, .carbs{
+    font-weight: bold;
+    font-size: 110%;
+}
+.calories {
+    color: var(--calories-color)
+}
+.protein {
+    color: var(--protein-color)
+}
+.fat {
+    color: var(--fat-color)
+}
+.carbs {
+    color: var(--carbs-color)
+}

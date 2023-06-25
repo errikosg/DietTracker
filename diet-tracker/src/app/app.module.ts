@@ -24,6 +24,7 @@ import { EmailFormDialogComponent } from './components/forms/email-form-dialog/e
 import { PassFormComponent } from './components/forms/pass-form/pass-form.component';
 import { DeleteAccountComponent } from './components/forms/delete-account/delete-account.component';
 import { DeleteAccountDialogComponent } from './components/forms/delete-account-dialog/delete-account-dialog.component';
+import { MacroGoalsDisplayComponent } from './components/macro-goals-display/macro-goals-display.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { DeleteAccountDialogComponent } from './components/forms/delete-account-
     EmailFormDialogComponent,
     PassFormComponent,
     DeleteAccountComponent,
-    DeleteAccountDialogComponent
+    DeleteAccountDialogComponent,
+    MacroGoalsDisplayComponent
   ],
   imports: [
     BrowserModule,
