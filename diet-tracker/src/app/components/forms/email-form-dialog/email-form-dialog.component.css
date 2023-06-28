@@ -1,6 +1,4 @@
 .pass-form-container, .email-form-container {
-    display: flex;
-    flex-direction: column;
     padding: 15px;
 }
 
@@ -9,8 +7,6 @@
 }
 
 .pass-buttons{
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     width:70%;
     margin:auto;
@@ -18,13 +14,4 @@
 }
 .pass-buttons > button {
     width:40%
-}
-.submit-button {
-    background-color: var(--main-color) !important;
-    color :white !important;
-}
-.server-error-message {
-    font-size: 90%;
-    color: var(--warn-color);
-    padding-left: 10px;
 }

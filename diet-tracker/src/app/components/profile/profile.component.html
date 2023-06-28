@@ -2,12 +2,23 @@
     <div class="tabs-container">
         <mat-tab-group animationDuration="0ms">
             <mat-tab label="Overview">
-                <h2>Your daily macro goals</h2>
-                <app-macro-goals-display></app-macro-goals-display>
+                <div class="flex-column-container info-container">
+                    <div class="info-box">
+                        <div class="flex-row-container goals-title">
+                            <h2>Your daily macro goals</h2>
+                            <div class="icons">
+                                <fa-icon [icon]="faPen" (click)="onUpdateMacros()"></fa-icon>
+                                <fa-icon [icon]="faTrash" (click)="onDeleteMacros()"></fa-icon>
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <app-macro-goals-display></app-macro-goals-display>
+                    </div>
+                </div>
             </mat-tab>
 
             <mat-tab label="Profile Info">
-                <div class="prof-info-container">
+                <div class="flex-column-container info-container">
                     <div class="info-box">
                         <app-name-form></app-name-form>
                     </div>

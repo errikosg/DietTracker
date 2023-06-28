@@ -1,0 +1,9 @@
+.macro-values{
+    width: 100%;
+    margin-left: 5px;
+    justify-content: space-between;
+}
+.macro-values >span {
+    font-weight: bold;
+    font-size: 115%;
+}

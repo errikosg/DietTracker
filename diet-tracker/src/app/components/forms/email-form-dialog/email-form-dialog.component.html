@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="pass-form-container" *ngIf="!authorized; else emailFormTemp">
+    <div class="flex-column-container pass-form-container" *ngIf="!authorized; else emailFormTemp">
         <h2>Confirm Identity</h2>
         <mat-divider></mat-divider>
         <i class="description">Please re-enter your password to continue</i>
@@ -13,14 +13,14 @@
                 required>
         </mat-form-field>
         <i class="server-error-message" *ngIf="error"> {{error}} </i>
-        <div class="pass-buttons">
-            <button mat-flat-button class="submit-button" (click)="onEnterPassword()">CONTINUE</button>
+        <div class="flex-row-container pass-buttons">
+            <button mat-flat-button class="main-button" (click)="onEnterPassword()">CONTINUE</button>
             <button mat-stroked-button (click)="onCancel()">CANCEL</button>
         </div>
     </div>
 
     <ng-template #emailFormTemp>
-        <form [formGroup]="emailForm" (ngSubmit)="onSubmit()" class="email-form-container">
+        <form [formGroup]="emailForm" (ngSubmit)="onSubmit()" class="flex-column-container email-form-container">
             <i class="description">Enter your new email</i>
             <mat-form-field>
                 <mat-label>Email</mat-label>
@@ -34,8 +34,8 @@
                 </mat-error>
             </mat-form-field>
             <i class="server-error-message" *ngIf="error"> {{error}} </i>
-            <div class="pass-buttons">
-                <button mat-flat-button class="submit-button" type="submit">SUBMIT</button>
+            <div class="flex-row-container pass-buttons">
+                <button mat-flat-button class="main-button" type="submit">SUBMIT</button>
                 <button mat-stroked-button (click)="onCancel()">CANCEL</button>
             </div>
         </form>

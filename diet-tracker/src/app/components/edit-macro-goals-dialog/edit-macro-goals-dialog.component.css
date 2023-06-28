@@ -1,0 +1,16 @@
+.container {
+    width: 80%;
+    margin: auto
+}
+
+.form-field > span {
+    margin-left: 5px;
+}
+
+.control-buttons {
+    justify-content: space-between;
+    width:70%;
+    margin:auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

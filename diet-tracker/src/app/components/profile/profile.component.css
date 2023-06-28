@@ -1,12 +1,24 @@
 /* profile overview */
 h2 {
     text-align: left;
+    margin: 0px;
+}
+.goals-title {
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+fa-icon {
+    margin: 6px;
+    font-size: 115%;
+    color: var(--main-color);
+}
+fa-icon:hover {
+    color: var(--hover-color);
+    cursor: pointer;
 }
 
 /* proifle info */
-.prof-info-container {
-    display: flex;
-    flex-direction: column;
+.info-container {
     justify-content: space-between;
     margin-top: 20px;
 }

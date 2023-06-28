@@ -1,4 +1,4 @@
-<div class="dialog-container">
+<div class="flex-column-container dialog-container">
     <h2>Confirm password</h2>
     <mat-divider></mat-divider>
     <i class="description">Please re-enter your password to continue</i>
@@ -12,8 +12,8 @@
             required>
     </mat-form-field>
     <i class="server-error-message" *ngIf="error"> {{error}} </i>
-    <div class="buttons">
-        <button mat-flat-button class="submit-button" (click)="onEnterPassword()">DELETE</button>
+    <div class="flex-row-container buttons">
+        <button mat-flat-button class="warn-button" (click)="onEnterPassword()">DELETE</button>
         <button mat-stroked-button (click)="onCancel()">CANCEL</button>
     </div>
 </div>

@@ -6,8 +6,6 @@
     padding: 15px;
     margin: auto;
     width: 95%;
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 

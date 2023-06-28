@@ -1,5 +1,5 @@
 <div class="form-container">
-    <form class="password-form" [formGroup]="passForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)" >
+    <form class="flex-column-container" [formGroup]="passForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)" >
         <h2>Change Password</h2>
         <mat-form-field>
             <mat-label>Current Password</mat-label>
@@ -35,6 +35,6 @@
         </mat-form-field>
 
         <i class="server-error-message" *ngIf="error"> {{error}} </i>
-        <button mat-flat-button type="submit">SUBMIT</button>
+        <button mat-flat-button class="main-button" type="submit">SUBMIT</button>
     </form>
 </div>

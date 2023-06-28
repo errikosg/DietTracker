@@ -1,18 +1,37 @@
 <div class="container">
-    <p>
-        <span class="calories">Calories: </span>
-        {{ userMacroGoals.calories }}
-    </p>
-    <p>
-        <span class="protein">Protein: </span>
-        {{ userMacroGoals.protein }}
-    </p>
-    <p>
-        <span class="fat">Fat: </span>
-        {{ userMacroGoals.fat }}
-    </p>
-    <p>
-        <span class="carbs">Carbs: </span>
-        {{ userMacroGoals.carbs }}
-    </p>
+    <div class="flex-column-container macros-container" *ngIf="alertText === null; else noMacros">
+        <span class="food-macros-title">
+            <app-macro-display
+                macroText="Calories(kcal)"
+                color="--calories-color"
+                [macroValue]="userMacroGoals.calories">
+            </app-macro-display>
+        </span>
+        <span class="food-macros-title">
+            <app-macro-display
+                macroText="Protein(g)"
+                color="--protein-color"
+                [macroValue]="userMacroGoals.protein">
+            </app-macro-display>
+        </span>
+        <span class="food-macros-title">
+            <app-macro-display
+                macroText="Fat(g)"
+                color="--fat-color"
+                [macroValue]="userMacroGoals.fat">
+            </app-macro-display>
+        </span>
+        <span class="food-macros-title">
+            <app-macro-display
+                macroText="Carbs(g)"
+                color="--carbs-color"
+                [macroValue]="userMacroGoals.carbs">
+            </app-macro-display>
+        </span>
+    </div>
+    <ng-template #noMacros>
+        <div class="no-macros">
+            <h3> {{ alertText }} </h3>
+        </div>
+    </ng-template>
 </div>

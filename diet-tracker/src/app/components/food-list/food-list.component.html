@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="search">
+    <div class="flex-column-container search">
         <mat-form-field class="form-field">
             <input matInput
                 type="text" 
@@ -7,9 +7,9 @@
                 placeholder="Search foods ..."
                 [(ngModel)]="searchText">
         </mat-form-field>
-        <div class="search-controls">
+        <div class="flex-row-container search-controls">
             <button mat-flat-button
-                class="search-button"
+                class="main-button"
                 (click)="onSubmit()"> SEARCH 
             </button>
             <button mat-stroked-button *ngIf="foodList.length > 0"

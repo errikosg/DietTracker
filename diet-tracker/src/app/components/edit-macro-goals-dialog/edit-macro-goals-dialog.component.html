@@ -1,0 +1,66 @@
+<div class="container">
+    <h2>Macro Goals</h2>
+    <form class="flex-column-container" [formGroup]="macrosForm" (ngSubmit)="onSubmit()"> 
+        <div class="flex-column-container form-field">
+            <span>Calories (kcal)</span>
+            <mat-form-field>
+                <mat-label>Calories</mat-label>
+                <input matInput
+                    type="number" 
+                    name="calories"
+                    formControlName="calories"
+                    >
+                <mat-error *ngIf="!macrosForm.get('calories').valid && macrosForm.get('calories').touched">
+                    Please enter a value
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex-column-container form-field">
+            <span>Protein (g)</span>
+            <mat-form-field>
+                <mat-label>Protein</mat-label>
+                <input matInput
+                    type="number" 
+                    name="protein"
+                    formControlName="protein"
+                    >
+                <mat-error *ngIf="!macrosForm.get('protein').valid && macrosForm.get('protein').touched">
+                    Please enter a value
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex-column-container form-field">
+            <span>Fat (g)</span>
+            <mat-form-field class="form-field">
+                <mat-label>Fat</mat-label>
+                <input matInput
+                    type="number" 
+                    name="fat"
+                    formControlName="fat"
+                    >
+                <mat-error *ngIf="!macrosForm.get('fat').valid && macrosForm.get('fat').touched">
+                    Please enter a value
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex-column-container form-field">
+            <span>Carbs (g)</span>
+            <mat-form-field class="form-field">
+                <mat-label>Carbs</mat-label>
+                <input matInput
+                    type="number" 
+                    name="carbs"
+                    formControlName="carbs"
+                    >
+                <mat-error *ngIf="!macrosForm.get('carbs').valid && macrosForm.get('carbs').touched">
+                    Please enter a username
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="flex-row-container control-buttons">
+            <button mat-flat-button class="main-button" type="submit">SUBMIT</button>
+            <button mat-stroked-button type="button" (click)="onCancel()">CANCEL</button>
+        </div>
+    </form>
+</div>

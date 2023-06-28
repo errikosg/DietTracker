@@ -36,34 +36,22 @@ mat-expansion-panel-header:hover {
 }
 
 /* content */
-.food-content {
-    display: flex;
-    flex-direction: column;
-}
 .food-content>div,h3 {
     margin-bottom: 0px;
 }
 .food-macros {
-    display: flex;
-    flex-direction: row;
+    width: 95%;
     margin-top: 8px;
-}
-.food-macros-title {
-    flex: 25%;
-}
-.food-macros-title>fa-icon {
-    margin-right: 5px;
+    justify-content: space-between;
 }
 
 .food-percent-bars {
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
 }
 .macro-bar {
     padding: 10px;
-    flex: 20%;
-    display: flex;
-    flex-direction: column;
+    flex: 0 0 25%;
 }
 .macro-bar>mat-progress-bar {
     width: 80%;

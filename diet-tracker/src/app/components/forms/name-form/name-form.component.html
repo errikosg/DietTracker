@@ -1,5 +1,5 @@
 <div class="form-container">
-    <form class="name-form" [formGroup]="nameForm" (ngSubmit)="onSubmit()">
+    <form class="flex-column-container" [formGroup]="nameForm" (ngSubmit)="onSubmit()">
         <h2>Change Username</h2>
         <mat-form-field>
             <mat-label>Username</mat-label>
@@ -12,6 +12,6 @@
         </mat-form-field>
         
         <i class="server-error-message" *ngIf="error"> {{error}} </i>
-        <button mat-flat-button type="submit">SUBMIT</button>
+        <button mat-flat-button type="submit" class="main-button">SUBMIT</button>
     </form>
 </div>

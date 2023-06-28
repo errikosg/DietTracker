@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { MacroGoals } from 'src/app/models/MacroGoals';
 
 @Injectable({
@@ -14,24 +14,37 @@ export class MacroGoalService {
       'Content-type': 'application/json; charset=UTF-8'
     }),
   }
+  macroGoals$ = new BehaviorSubject<MacroGoals>(null);
 
   constructor(
     private http: HttpClient
   ) { }
 
   getMacroGoals(): Observable<MacroGoals> {
-    return this.http.get<MacroGoals>(this.url, this.httpOptions)
+    return this.http.get<MacroGoals>(this.url, this.httpOptions);
   }
 
   createMacroGoals(macros: MacroGoals): Observable<MacroGoals> {
     return this.http.post<MacroGoals>(this.url, macros, this.httpOptions)
+    .pipe(map(macros => {
+      this.macroGoals$.next(macros);
+      return macros;
+    }))
   }
 
   updateMacroGoals(macros: {[key:string]: string}): Observable<MacroGoals> {
     return this.http.patch<MacroGoals>(this.url, macros, this.httpOptions)
+    .pipe(map(macros => {
+      this.macroGoals$.next(macros);
+      return macros;
+    }))
   }
 
-  deleteMacroGoals(): Observable<MacroGoals> {
-    return this.http.delete<MacroGoals>(this.url, this.httpOptions)
+  deleteMacroGoals(): Observable<string> {
+    return this.http.delete<string>(this.url, this.httpOptions)
+    .pipe(map(res => {
+      this.macroGoals$.next(null);
+      return res;
+    }))
   }
 }

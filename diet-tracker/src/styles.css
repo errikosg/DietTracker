@@ -8,6 +8,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --main-color: #1E457C;
     --hover-color: #0f223e;
     --warn-color: #f44336;
+    --warn-hover-color: #b71b1c;
     --link-color: #333;
     --calories-color: rgb(53,172,199);
     --carbs-color: rgb(35,118,115);
@@ -17,4 +18,40 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 h2 {
   text-align: center;
+}
+
+/* buttons */
+.main-button {
+  background-color: var(--main-color) !important;
+  color :white !important;
+}
+.main-button:hover {
+  background-color: var(--hover-color) !important;
+}
+
+.warn-button {
+  background-color: var(--warn-color) !important;
+  color :white !important;
+}
+
+.warn-button:hover {
+  background-color: var(--warn-hover-color) !important;
+}
+
+/* containers */
+.flex-row-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* messages */
+.server-error-message {
+  font-size: 90%;
+  color: var(--warn-color);
+  padding-left: 10px;
 }

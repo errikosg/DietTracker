@@ -1,6 +1,6 @@
 <div class="container">
     <h2> {{ submitButtonText }} </h2>
-        <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <form class="flex-column-container" [formGroup]="form" (ngSubmit)="onSubmit()">
             <mat-form-field *ngIf="!loginMode" class="form-field">
                 <mat-label>Username</mat-label>
                 <input matInput
@@ -39,8 +39,8 @@
 
             <i class="server-error-message" *ngIf="error"> {{error}} </i>
             <div class="form-buttons">
-                <button mat-flat-button type="submit"> {{ submitButtonText }} </button><hr />
-                <button mat-flat-button type="button" (click)="onChangeMode()"> {{ changeButtonText }} </button>
+                <button mat-flat-button class="main-button" type="submit"> {{ submitButtonText }} </button><hr />
+                <button mat-flat-button class="main-button" type="button" (click)="onChangeMode()"> {{ changeButtonText }} </button>
             </div>
         </form>
 </div>

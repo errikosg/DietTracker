@@ -1,14 +1,10 @@
 .container {
-    /* border: 1px solid; */
     height: 595px;
 }
 
 .search {
     margin:auto;
     width: 80%;
-    display: flex;
-    flex-direction: column;
-    /* border: 1px solid; */
 }
 
 .form-field {
@@ -16,19 +12,13 @@
 }
 
 .search-controls {
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 
-.search-button {
-    background-color: var(--main-color) !important;
-    color: white !important;
+.main-button {
     width: 20%;
 }
-.search-button:hover {
-    background-color: var(--hover-color) !important;
-}
+
 .clear-button{
     width: 20%;
 }

@@ -1,9 +1,9 @@
-.dialog-container {
-    padding: 15px;
+.alert-container {
+    padding: 20px;
 }
 
-.description {
-    margin-bottom: 10px;
+h3 {
+    text-align: center;
 }
 
 .buttons{

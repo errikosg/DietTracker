@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { MacroGoals } from 'src/app/models/MacroGoals';
 import { MacroGoalService } from 'src/app/services/macro-goal/macro-goal.service';
 
@@ -7,21 +8,49 @@ import { MacroGoalService } from 'src/app/services/macro-goal/macro-goal.service
   templateUrl: './macro-goals-display.component.html',
   styleUrls: ['./macro-goals-display.component.css']
 })
-export class MacroGoalsDisplayComponent implements OnInit{
+export class MacroGoalsDisplayComponent implements OnInit, OnDestroy{
   userMacroGoals: MacroGoals = {
     calories: 0,
     protein: 0,
     fat: 0,
     carbs:0
   };
+  alertText: string = null;
+  initialization: boolean = true;
+  subscription: Subscription
 
   constructor(
-    private macroGoalService: MacroGoalService
+    public macroGoalService: MacroGoalService
   ){}
 
   ngOnInit(): void {
+    console.log(this.alertText)
     this.macroGoalService.getMacroGoals().subscribe(macros => {
-      this.userMacroGoals = macros
+      if(macros !== null){
+        this.userMacroGoals = macros
+        this.alertText = null;
+      }
+      else{
+        this.alertText = "You haven't added daily Macro Goals yet!"
+      }
+      this.initialization = false;
     })
+
+    // set up macro-goal subscription
+    this.subscription = this.macroGoalService.macroGoals$.subscribe(macros => {
+      if(!this.initialization){
+        if(macros !== null){
+          this.userMacroGoals = macros
+          this.alertText = null;
+        }
+        else{
+          this.alertText = "You haven't added daily Macro Goals yet!"
+        }
+      }
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
   }
 }

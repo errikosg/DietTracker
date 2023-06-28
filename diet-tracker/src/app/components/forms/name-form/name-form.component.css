@@ -1,18 +1,5 @@
-.name-form {
-    display: flex;
-    flex-direction: column;
-}
-
-button {
-    background-color: var(--main-color) !important;
-    color :white !important;
+.main-button {
     width: 30%;
     margin: auto;
     margin-top: 15px;
-}
-
-.server-error-message {
-    font-size: 90%;
-    color: var(--warn-color);
-    padding-left: 10px;
 }

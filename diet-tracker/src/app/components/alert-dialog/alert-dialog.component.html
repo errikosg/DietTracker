@@ -1,0 +1,9 @@
+<div class="flex-column-container alert-container">
+    <h3 class="alert-msg">
+        {{ alertText }}
+    </h3>
+    <div class="flex-row-container buttons">
+        <button mat-flat-button class="warn-button" (click)="onAccept()">CONFIRM</button>
+        <button mat-stroked-button (click)="onCancel()">CANCEL</button>
+    </div>
+</div>

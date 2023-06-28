@@ -25,6 +25,9 @@ import { PassFormComponent } from './components/forms/pass-form/pass-form.compon
 import { DeleteAccountComponent } from './components/forms/delete-account/delete-account.component';
 import { DeleteAccountDialogComponent } from './components/forms/delete-account-dialog/delete-account-dialog.component';
 import { MacroGoalsDisplayComponent } from './components/macro-goals-display/macro-goals-display.component';
+import { EditMacroGoalsDialogComponent } from './components/edit-macro-goals-dialog/edit-macro-goals-dialog.component';
+import { MacroDisplayComponent } from './components/macro-display/macro-display.component';
+import { AlertDialogComponent } from './components/alert-dialog/alert-dialog.component';
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import { MacroGoalsDisplayComponent } from './components/macro-goals-display/mac
     PassFormComponent,
     DeleteAccountComponent,
     DeleteAccountDialogComponent,
-    MacroGoalsDisplayComponent
+    MacroGoalsDisplayComponent,
+    EditMacroGoalsDialogComponent,
+    MacroDisplayComponent,
+    AlertDialogComponent
   ],
   imports: [
     BrowserModule,
