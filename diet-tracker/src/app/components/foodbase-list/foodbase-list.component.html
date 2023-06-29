@@ -27,9 +27,9 @@
     </mat-paginator> 
     <div class="food-list">
         <mat-spinner *ngIf="isLoading" [diameter]="70"></mat-spinner>
-        <app-food-list-item
+        <app-foodbase-list-item
             *ngFor="let food of shownFoodList"
             [food]="food">
-        </app-food-list-item>
+        </app-foodbase-list-item>
     </div>
 </div>

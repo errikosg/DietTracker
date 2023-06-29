@@ -4,11 +4,11 @@ import { Food } from 'src/app/models/Food';
 import { FoodAPIService } from 'src/app/services/food-api/food-api.service';
 
 @Component({
-  selector: 'app-food-list',
-  templateUrl: './food-list.component.html',
-  styleUrls: ['./food-list.component.css']
+  selector: 'app-foodbase-list',
+  templateUrl: './foodbase-list.component.html',
+  styleUrls: ['./foodbase-list.component.css']
 })
-export class FoodListComponent implements OnInit{
+export class FoodBaseListComponent implements OnInit{
   searchText: string = "";
   foodList: Food[] = [];
   shownFoodList: Food[] = [];

@@ -7,11 +7,11 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-food-list-item',
-  templateUrl: './foodlist-item.component.html',
-  styleUrls: ['./foodlist-item.component.css']
+  selector: 'app-foodbase-list-item',
+  templateUrl: './foodbase-list-item.component.html',
+  styleUrls: ['./foodbase-list-item.component.css']
 })
-export class FoodListItemComponent implements OnInit{
+export class FoodBaseListItemComponent implements OnInit{
   @Input() food: Food;
   panelOpenState: boolean = false;
   faPhoto = faPhotoFilm; faDotCircle=faDotCircle
