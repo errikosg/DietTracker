@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth/auth.service';
+import { MacroGoalService } from './services/macro-goal/macro-goal.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,13 @@ import { AuthService } from './services/auth/auth.service';
 export class AppComponent implements OnInit{
   
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private macroGoalService: MacroGoalService
   ){}
 
   ngOnInit(): void {
-    this.authService.autoLogin()
+    this.authService.autoLogin();
+    this.macroGoalService.getMacroGoals().subscribe();
   }
   
 }

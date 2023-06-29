@@ -16,16 +16,16 @@ export class MacroGoalsDisplayComponent implements OnInit, OnDestroy{
     carbs:0
   };
   alertText: string = null;
-  initialization: boolean = true;
+  isLoading: boolean = true;
   subscription: Subscription
 
   constructor(
-    public macroGoalService: MacroGoalService
+    private macroGoalService: MacroGoalService
   ){}
 
   ngOnInit(): void {
-    console.log(this.alertText)
-    this.macroGoalService.getMacroGoals().subscribe(macros => {
+    // set up macro-goal subscription
+    this.subscription = this.macroGoalService.macroGoals$.subscribe(macros => {
       if(macros !== null){
         this.userMacroGoals = macros
         this.alertText = null;
@@ -33,20 +33,7 @@ export class MacroGoalsDisplayComponent implements OnInit, OnDestroy{
       else{
         this.alertText = "You haven't added daily Macro Goals yet!"
       }
-      this.initialization = false;
-    })
-
-    // set up macro-goal subscription
-    this.subscription = this.macroGoalService.macroGoals$.subscribe(macros => {
-      if(!this.initialization){
-        if(macros !== null){
-          this.userMacroGoals = macros
-          this.alertText = null;
-        }
-        else{
-          this.alertText = "You haven't added daily Macro Goals yet!"
-        }
-      }
+      this.isLoading = false;
     })
   }
 

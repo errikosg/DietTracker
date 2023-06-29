@@ -17,7 +17,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FoodListComponent } from './components/food-list/food-list.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FoodInfoComponent } from './components/food-info/food-info.component';
+import { FoodListItemComponent } from './components/foodlist-item/foodlist-item.component';
 import { NameFormComponent } from './components/forms/name-form/name-form.component';
 import { EmailFormComponent } from './components/forms/email-form/email-form.component';
 import { EmailFormDialogComponent } from './components/forms/email-form-dialog/email-form-dialog.component';
@@ -28,6 +28,7 @@ import { MacroGoalsDisplayComponent } from './components/macro-goals-display/mac
 import { EditMacroGoalsDialogComponent } from './components/edit-macro-goals-dialog/edit-macro-goals-dialog.component';
 import { MacroDisplayComponent } from './components/macro-display/macro-display.component';
 import { AlertDialogComponent } from './components/alert-dialog/alert-dialog.component';
+import { FoodInfoComponent } from './components/food-info/food-info.component';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { AlertDialogComponent } from './components/alert-dialog/alert-dialog.com
     DashboardComponent,
     FoodListComponent,
     RecipesComponent,
-    FoodInfoComponent,
+    FoodListItemComponent,
     NameFormComponent,
     EmailFormComponent,
     EmailFormDialogComponent,
@@ -50,7 +51,8 @@ import { AlertDialogComponent } from './components/alert-dialog/alert-dialog.com
     MacroGoalsDisplayComponent,
     EditMacroGoalsDialogComponent,
     MacroDisplayComponent,
-    AlertDialogComponent
+    AlertDialogComponent,
+    FoodInfoComponent
   ],
   imports: [
     BrowserModule,

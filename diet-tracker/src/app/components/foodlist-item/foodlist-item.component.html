@@ -1,0 +1,22 @@
+<div class="container">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <div class="img-container">
+                        <img *ngIf="food.image, else altPhoto" src="{{ food.image }}" class="food-img">
+                        <ng-template #altPhoto>
+                            <fa-icon [icon]="faPhoto" class="alt-photo"></fa-icon>
+                        </ng-template>
+                    </div>
+                    <div class="food-title">
+                        {{ food.label }}
+                    </div>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <app-food-info [nutrients]="food.nutrients"></app-food-info>
+        </mat-expansion-panel>
+      </mat-accordion>
+      
+</div>

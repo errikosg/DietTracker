@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="flex-column-container macros-container" *ngIf="alertText === null; else noMacros">
+    <div class="flex-column-container macros-container" *ngIf="!isLoading && alertText === null; else noMacros">
         <span class="food-macros-title">
             <app-macro-display
                 macroText="Calories(kcal)"

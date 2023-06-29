@@ -17,10 +17,11 @@ export class FoodListComponent implements OnInit{
   isLoading: boolean = false;
 
   constructor(
-    private foodapiService: FoodAPIService
+    private foodApiService: FoodAPIService
   ){}
 
   ngOnInit(): void {
+    // this.shownFoodList = this.foodApiService.getMockData();
   }
 
   onSubmit() {
@@ -30,7 +31,7 @@ export class FoodListComponent implements OnInit{
       this.shownFoodList = [];
 
       // send request
-      this.foodapiService.getFoods(this.searchText).subscribe(foods => {
+      this.foodApiService.getFoods(this.searchText).subscribe(foods => {
         this.foodList = foods
         this.isLoading = false;
         this.calculateShownFoods()

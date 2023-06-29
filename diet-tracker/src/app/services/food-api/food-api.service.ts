@@ -21,12 +21,6 @@ export class FoodAPIService {
   private searchHeaders = new HttpHeaders ({
     'Content-type': 'application/json;'
   })
-  // private httpOptions = {
-  //   headers : new HttpHeaders ({
-  //     'Content-type': 'application/json;'
-  //   }),
-  //   params: this.searchParams
-  // }
 
   mockFoods: Food[] = [
     {
