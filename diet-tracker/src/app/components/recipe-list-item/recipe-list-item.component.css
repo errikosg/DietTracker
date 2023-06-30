@@ -1,0 +1,25 @@
+.container {
+    width: 50%;
+    padding: 10px;
+    border-bottom: 1px solid;
+    border-radius: 4px;
+    margin: 0px 0px 20px 15px;
+    justify-content: space-between;
+}
+
+.display {
+    width: 85%;
+
+}
+.icons {
+    padding-top: 20px;
+}
+fa-icon {
+    margin: 8px;
+    font-size: 130%;
+    color: var(--main-color);
+}
+fa-icon:hover {
+    color: var(--hover-color);
+    cursor: pointer;
+}

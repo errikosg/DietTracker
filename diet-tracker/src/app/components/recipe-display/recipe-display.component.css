@@ -1,0 +1,13 @@
+.display-container{
+    background-color: #eeee;
+    padding: 8px;
+}
+
+.recipe-title {
+    margin-left: 8%;
+    font-weight: bold;
+}
+
+.info {
+    margin-left: 4%;
+}

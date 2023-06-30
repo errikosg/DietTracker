@@ -1,1 +1,12 @@
-<p>recipes works!</p>
+<div class="container flex-column-container">
+    <h2 class="title">Your Recipes</h2>
+    <div class="add-button">
+        <button mat-flat-button class="main-button" (click)="onAddRecipe()">+ ADD RECIPE</button>
+    </div>
+    <div class="list-container flex-column-container">
+        <app-recipe-list-item
+            *ngFor="let recipe of recipeList"
+            [recipe]="recipe">
+        </app-recipe-list-item>
+    </div>
+</div>

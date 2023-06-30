@@ -32,37 +32,7 @@ export class FoodAPIService {
         fat: 0.17,
         carbs: 13.8
       },
-      image: "https://www.edamam.com/food-img/42c/42c006401027d35add93113548eeaae6.jpg",
-      measures: [
-        {
-          label: "whole",
-          weight: 182
-        },
-        {
-          label: "serving",
-          weight: 242
-        },
-        {
-          label: "gram",
-          weight: 1
-        },
-        {
-          label: "ounce",
-          weight: 28.35
-        },
-        {
-          label: "pound",
-          weight: 453.5
-        },
-        {
-          label: "kilogram",
-          weight: 1000
-        },
-        {
-          label: "cup",
-          weight: 109
-        }
-      ]
+      image: "https://www.edamam.com/food-img/42c/42c006401027d35add93113548eeaae6.jpg"
     },
     {
       foodId: 'food_amhlqj0by3ozesbg96kkhar1atxt',
@@ -74,36 +44,6 @@ export class FoodAPIService {
         carbs: 15.2
       },
       image: "https://www.edamam.com/food-img/327/327e8b398000b83e4764ca0bab240f14.jpg",
-      measures: [
-        {
-          label: "whole",
-          weight: 197
-        },
-        {
-          label: "serving",
-          weight: 55
-        },
-        {
-          label: "gram",
-          weight: 1
-        },
-        {
-          label: "ounce",
-          weight: 28.35
-        },
-        {
-          label: "pound",
-          weight: 453.5
-        },
-        {
-          label: "kilogram",
-          weight: 1000
-        },
-        {
-          label: "cup",
-          weight: 109
-        }
-      ]
     }
   ]
 
@@ -153,8 +93,7 @@ export class FoodAPIService {
         foodId: foodId,
         label: label,
         nutrients: nutrientsFixed,
-        image: image,
-        measures: measures
+        image: image
       })
     }
     console.log(foods)

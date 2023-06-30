@@ -1,4 +1,3 @@
-import { Measure } from "./Measure";
 import { Nutrients } from "./Nutrients";
 
 export interface Food {
@@ -6,5 +5,5 @@ export interface Food {
     label: string,
     nutrients: Nutrients,
     image?: string,
-    measures: Measure[]
+    _id? : string
 }

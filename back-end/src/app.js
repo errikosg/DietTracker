@@ -16,4 +16,8 @@ app.use(`${baseURL}/users`, usersRouter);
 const mgoalsRouter = require('./routers/macroGoals');
 app.use(`${baseURL}/macro-goals`, mgoalsRouter);
 
+//recipes
+const recipesRouter = require('./routers/recipes');
+app.use(`${baseURL}/recipes`, recipesRouter);
+
 module.exports = app

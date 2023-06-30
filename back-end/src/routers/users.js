@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
             token
         });
     } catch (e) {
-        res.status(400).send({ error: e });
+        res.status(400).send({ error: e.message });
     }
 
 });

@@ -1,0 +1,13 @@
+<div class="flex-row-container container">
+    <div class="display">
+        <app-recipe-display
+            [name]="recipe.name"
+            [calories]="recipe.nutrients.calories"
+            [ingredients]="recipe.ingredients.length">
+        </app-recipe-display>
+    </div>
+    <div class="icons flex-row-container">
+        <fa-icon [icon]="faPen" (click)="onUpdateRecipe()"></fa-icon>
+        <fa-icon [icon]="faTrash" (click)="onDeleteRecipe()"></fa-icon>
+    </div>
+</div>

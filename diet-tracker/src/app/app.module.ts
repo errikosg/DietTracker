@@ -14,10 +14,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FoodBaseListComponent } from './components/foodbase-list/foodbase-list.component';
+import { FoodBaseListComponent } from './components/foodbase/foodbase-list/foodbase-list.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FoodBaseListItemComponent } from './components/foodbase-list-item/foodbase-list-item.component';
+import { FoodBaseListItemComponent } from './components/foodbase/foodbase-list-item/foodbase-list-item.component';
 import { NameFormComponent } from './components/forms/name-form/name-form.component';
 import { EmailFormComponent } from './components/forms/email-form/email-form.component';
 import { EmailFormDialogComponent } from './components/forms/email-form-dialog/email-form-dialog.component';
@@ -29,6 +29,9 @@ import { EditMacroGoalsDialogComponent } from './components/edit-macro-goals-dia
 import { MacroDisplayComponent } from './components/macro-display/macro-display.component';
 import { AlertDialogComponent } from './components/alert-dialog/alert-dialog.component';
 import { FoodInfoComponent } from './components/food-info/food-info.component';
+import { RecipeListItemComponent } from './components/recipe-list-item/recipe-list-item.component';
+import { RecipeDisplayComponent } from './components/recipe-display/recipe-display.component';
+import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
 
 
 @NgModule({
@@ -52,7 +55,10 @@ import { FoodInfoComponent } from './components/food-info/food-info.component';
     EditMacroGoalsDialogComponent,
     MacroDisplayComponent,
     AlertDialogComponent,
-    FoodInfoComponent
+    FoodInfoComponent,
+    RecipeListItemComponent,
+    RecipeDisplayComponent,
+    RecipeFormComponent
   ],
   imports: [
     BrowserModule,

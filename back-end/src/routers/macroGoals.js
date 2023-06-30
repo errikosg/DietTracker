@@ -1,13 +1,11 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const User = require("../db/schemas/User");
 const MacroGoals = require("../db/schemas/MacroGoals")
 const auth = require('../middleware/auth');
 const router = new express.Router();
 
 /***  ENDPOINTS ***/
 // @route   POST p-tracker-api/macro-goals
-// @desc    Add new portfolio?
+// @desc    Add new macro goals
 // @access  Private
 router.post('/', auth, async (req,res) => {
     const macros = new MacroGoals({
@@ -18,7 +16,7 @@ router.post('/', auth, async (req,res) => {
         await macros.save();
         res.status(201).send(macros);
     }catch(e){
-        res.status(400).send(e);
+        res.status(400).send({ error: e.message });
     }
 })
 
@@ -30,7 +28,7 @@ router.get('/', auth, async (req, res) => {
         const macros = await MacroGoals.findOne({ owner : req.user._id});
         res.status(200).send(macros);
     }catch(e){
-        res.status(400).send(e);
+        res.status(400).send({ error: e.message });
     }
 });
 
@@ -52,7 +50,7 @@ router.patch('/', auth, async (req, res) => {
         await macros.save();
         res.status(201).send(macros);
     }catch(e){
-        res.status(400).send(e);
+        res.status(400).send({ error: e.message });
     }
 });
 
