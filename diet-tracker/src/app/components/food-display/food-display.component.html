@@ -1,0 +1,18 @@
+<div class="flex-row-container food-display">
+    <div class="img-container">
+        <img *ngIf="image, else altPhoto" src="{{ image }}" class="food-img">
+        <ng-template #altPhoto>
+            <fa-icon [icon]="faPhoto" class="alt-photo"></fa-icon>
+        </ng-template>
+    </div>
+    <div class="flex-column-container content">
+        <h2 class="food-title">{{ label }}</h2>
+        <i class="food-exta-info"> 
+            Calories: 
+                <span class="bold">{{calories | number: '1.0-2' }}</span> 
+            kcal per 
+                <span class="bold">{{weight | number: '1.0-2' }}</span> 
+            grams 
+        </i>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.container {
+    justify-content: space-between;
+    padding-left: 10px;
+    border: 1px solid;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    min-height: 50px;
+}
+.display {
+    width: 90%;
+}
+.controls {
+    padding-top: 25px;
+    width: 10%;
+    justify-content: center;
+}
+fa-icon {
+    margin-right: 10px;
+    font-size: 130%;
+    color: var(--main-color);
+    display: block;
+}
+fa-icon:hover {
+    color: var(--hover-color);
+    cursor: pointer;
+}

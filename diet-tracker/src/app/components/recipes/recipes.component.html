@@ -6,7 +6,8 @@
     <div class="list-container flex-column-container">
         <app-recipe-list-item
             *ngFor="let recipe of recipeList"
-            [recipe]="recipe">
+            [recipe]="recipe"
+            (deleted)="onRecipeDeleted($event)">
         </app-recipe-list-item>
     </div>
 </div>

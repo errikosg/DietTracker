@@ -1,0 +1,22 @@
+.container {
+    width: 60%;
+    margin:auto;
+    justify-content: space-between;
+    padding-left: 10px;
+    border: 1px solid;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    /* min-height: 50px; */
+}
+.display {
+    width: 75%;
+}
+
+.add-button {
+    width: 25%;
+}
+.add-button>button {
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+}

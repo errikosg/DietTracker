@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 import { Food } from 'src/app/models/Food';
 import { FoodAPIService } from 'src/app/services/food-api/food-api.service';
 
 @Component({
-  selector: 'app-foodbase-list',
-  templateUrl: './foodbase-list.component.html',
-  styleUrls: ['./foodbase-list.component.css']
+  selector: 'app-add-ingredient-form',
+  templateUrl: './add-ingredient-form.component.html',
+  styleUrls: ['./add-ingredient-form.component.css']
 })
-export class FoodBaseListComponent implements OnInit{
+export class AddIngredientFormComponent implements OnInit{
   searchText: string = "";
   foodList: Food[] = [];
   shownFoodList: Food[] = [];
@@ -17,14 +18,15 @@ export class FoodBaseListComponent implements OnInit{
   isLoading: boolean = false;
 
   constructor(
-    private foodApiService: FoodAPIService
+    private foodApiService: FoodAPIService,
+    private router: Router
   ){}
 
   ngOnInit(): void {
     this.shownFoodList = this.foodApiService.getMockData();
   }
 
-  onSubmit() {
+  onSubmitSearch() {
     // if(this.searchText !== ""){
     //   this.isLoading = true;
     //   this.foodList = [];
@@ -54,5 +56,9 @@ export class FoodBaseListComponent implements OnInit{
     // manage shown tasks in page
     let startIndex = this.pageIndex * this.pageSize;
     this.shownFoodList = this.foodList.slice(startIndex, startIndex+this.pageSize)
+  }
+
+  onCancel() {
+    this.router.navigate(['./recipes/edit'])
   }
 }

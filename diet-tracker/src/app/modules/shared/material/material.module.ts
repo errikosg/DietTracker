@@ -12,6 +12,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTabsModule} from '@angular/material/tabs'; 
 import {MatDialogModule} from '@angular/material/dialog'; 
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+import {MatSelectModule} from '@angular/material/select'; 
 
 @NgModule({
   declarations: [],
@@ -27,7 +28,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatPaginatorModule,
     MatTabsModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule { }

@@ -1,0 +1,9 @@
+.measure-form {
+    padding: 10px;
+    background-color: #BDDBEF;
+    justify-content: space-evenly;
+}
+
+.measure-form > div {
+    padding-top: 20px;
+}

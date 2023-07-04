@@ -15,7 +15,7 @@
         <i class="server-error-message" *ngIf="error"> {{error}} </i>
         <div class="flex-row-container pass-buttons">
             <button mat-flat-button class="main-button" (click)="onEnterPassword()">CONTINUE</button>
-            <button mat-stroked-button (click)="onCancel()">CANCEL</button>
+            <button mat-stroked-button class="cancel-button" (click)="onCancel()">CANCEL</button>
         </div>
     </div>
 
@@ -36,7 +36,7 @@
             <i class="server-error-message" *ngIf="error"> {{error}} </i>
             <div class="flex-row-container pass-buttons">
                 <button mat-flat-button class="main-button" type="submit">SUBMIT</button>
-                <button mat-stroked-button (click)="onCancel()">CANCEL</button>
+                <button mat-stroked-button class="cancel-button" (click)="onCancel()">CANCEL</button>
             </div>
         </form>
     </ng-template>

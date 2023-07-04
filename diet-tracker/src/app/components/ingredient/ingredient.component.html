@@ -1,0 +1,13 @@
+<div class="flex-row-container container">
+    <div class="display">
+        <app-food-display
+            [label]="food.label"
+            [image]="food.image"
+            [weight]="food.weight"
+            [calories]="food.nutrients.calories">
+        </app-food-display>
+    </div>
+    <div class="controls flex-row-container">
+        <fa-icon [icon]="faTrash" (click)="onDeleteFood()"></fa-icon>
+    </div>
+</div>

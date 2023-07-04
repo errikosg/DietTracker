@@ -5,5 +5,6 @@ export interface Food {
     label: string,
     nutrients: Nutrients,
     image?: string,
-    _id? : string
+    _id? : string,
+    weight?: number;
 }

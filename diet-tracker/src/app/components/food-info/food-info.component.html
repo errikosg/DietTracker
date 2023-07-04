@@ -1,33 +1,33 @@
 <div class="flex-column-container food-content">
     <div class="food-info">
-        <h3>Macros per 100g</h3>
+        <h3>Macros per {{+grams | number: '1.2-2' }}g</h3>
         <div class="flex-row-container food-macros">
             <span class="food-macros-title">
                 <app-macro-display
                     macroText="Calories(kcal)"
                     color="--calories-color"
-                    [macroValue]="nutrients.calories">
+                    [macroValue]="shownNutrients.calories">
                 </app-macro-display>
             </span>
             <span class="food-macros-title">
                 <app-macro-display
                     macroText="Protein(g)"
                     color="--protein-color"
-                    [macroValue]="nutrients.protein">
+                    [macroValue]="shownNutrients.protein">
                 </app-macro-display>
             </span>
             <span class="food-macros-title">
                 <app-macro-display
                     macroText="Fat(g)"
                     color="--fat-color"
-                    [macroValue]="nutrients.fat">
+                    [macroValue]="shownNutrients.fat">
                 </app-macro-display>
             </span>
             <span class="food-macros-title">
                 <app-macro-display
                     macroText="Carbs(g)"
                     color="--carbs-color"
-                    [macroValue]="nutrients.carbs">
+                    [macroValue]="shownNutrients.carbs">
                 </app-macro-display>
             </span>
         </div>

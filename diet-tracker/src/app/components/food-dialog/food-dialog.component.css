@@ -1,0 +1,29 @@
+.dialog-container {
+    width: 85%;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.food-name{
+    text-align: center;
+}
+.measure {
+    width: 70%;
+    margin:auto;
+}
+.controls {
+    justify-content: space-between;
+}
+
+.food-info{
+    margin-top: 10px;
+}
+
+.controls {
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+.controls >button {
+    width: 30%;
+}

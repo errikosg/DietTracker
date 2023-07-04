@@ -32,6 +32,12 @@ import { FoodInfoComponent } from './components/food-info/food-info.component';
 import { RecipeListItemComponent } from './components/recipe-list-item/recipe-list-item.component';
 import { RecipeDisplayComponent } from './components/recipe-display/recipe-display.component';
 import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
+import { IngredientComponent } from './components/ingredient/ingredient.component';
+import { FoodDisplayComponent } from './components/food-display/food-display.component';
+import { AddIngredientFormComponent } from './components/add-ingredient-form/add-ingredient-form.component';
+import { FoodListItemComponent } from './components/food-list-item/food-list-item.component';
+import { FoodDialogComponent } from './components/food-dialog/food-dialog.component';
+import { MeasureFormComponent } from './components/measure-form/measure-form.component';
 
 
 @NgModule({
@@ -58,7 +64,13 @@ import { RecipeFormComponent } from './components/recipe-form/recipe-form.compon
     FoodInfoComponent,
     RecipeListItemComponent,
     RecipeDisplayComponent,
-    RecipeFormComponent
+    RecipeFormComponent,
+    IngredientComponent,
+    FoodDisplayComponent,
+    AddIngredientFormComponent,
+    FoodListItemComponent,
+    FoodDialogComponent,
+    MeasureFormComponent
   ],
   imports: [
     BrowserModule,

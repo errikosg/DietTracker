@@ -1,0 +1,13 @@
+<div class="flex-row-container container">
+    <div class="display">
+        <app-food-display
+            [label]="food.label"
+            [image]="food.image"
+            weight="100"
+            [calories]="food.nutrients.calories">
+        </app-food-display>
+    </div>
+    <div class="add-button">
+        <button mat-flat-button class="main-button" (click)="onAdd()">+ ADD</button>
+    </div>
+</div>

@@ -1,4 +1,65 @@
-<div class="recipe-container">
-    <p *ngIf="isEditing">Editing mode</p>
-    <p *ngIf="!isEditing">Adding mode</p>
+<div class="recipe-container flex-column-container">
+    <div class="control-buttons flex-row-container">
+        <button mat-stroked-button class="cancel-button" (click)="onCancel()">CANCEL</button>
+        <button mat-flat-button class="main-button" (click)="onSubmit()">SUBMIT</button>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="mode">
+        <h2 *ngIf="isEditing">EDIT RECIPE</h2>
+        <h2 *ngIf="!isEditing">ADD RECIPE</h2>
+    </div>
+    <div class="recipe-name-container">
+        <input class="recipe-name" placeholder="Recipe Name..." [(ngModel)]="recipe.name">
+    </div>
+    <div class="flex-row-container content">
+        <div class="flex-column-container ingredients">
+            <h2 class="title">Ingredients</h2>
+            <div class="add-button">
+                <button mat-flat-button class="main-button" (click)="onAddIngredient()">+ ADD</button>
+            </div>
+            <div class="ingredient-list">
+                <app-ingredient
+                    *ngFor="let ingredient of recipe.ingredients; let i=index"
+                    [food]="ingredient"
+                    [index]="i"
+                    (deleted)="onIngredientDeleted($event)">
+                </app-ingredient>
+            </div>
+        </div>
+        <div class="total-nutrients">
+            <div class="nutrients-table">
+                <h2 class="title">Total macro info</h2>
+                <div class="macros flex-column-container">
+                    <span class="food-macros-title">
+                        <app-macro-display 
+                            macroText="Calories(kcal)"
+                            color="--calories-color"
+                            [macroValue]="recipe.nutrients.calories">
+                        </app-macro-display>
+                    </span>
+                    <span class="food-macros-title">
+                        <app-macro-display 
+                            macroText="Protein(g)"
+                            color="--protein-color"
+                            [macroValue]="recipe.nutrients.protein">
+                        </app-macro-display>
+                    </span>
+                    <span class="food-macros-title">
+                        <app-macro-display 
+                            macroText="Fat(g)"
+                            color="--fat-color"
+                            [macroValue]="recipe.nutrients.fat">
+                        </app-macro-display>
+                    </span>
+                    <span class="food-macros-title">
+                        <app-macro-display 
+                            macroText="Carbs(g)"
+                            color="--carbs-color"
+                            [macroValue]="recipe.nutrients.carbs">
+                        </app-macro-display>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

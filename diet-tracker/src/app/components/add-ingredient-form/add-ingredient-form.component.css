@@ -1,10 +1,18 @@
-.container {
-    height: 595px;
-}
-
 .search {
     margin:auto;
     width: 80%;
+}
+.control-button {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.control-button>button {
+    width: 20%;
+    display: block;
+    margin:auto;
+}
+.title {
+    margin-top: 10px;
 }
 
 .form-field {
@@ -19,10 +27,17 @@
     width: 20%;
 }
 
+.food-list {
+    padding: 20px 20px 0px;
+}
+
 mat-paginator {
     margin-top: 30px;
     background-color: transparent;
 }
+/* ::ng-deep .mat-mdc-paginator-container {
+    justify-content: flex-start !important;
+} */
 mat-spinner {
     margin: auto;
 }

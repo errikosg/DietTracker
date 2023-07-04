@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable, Subject, map } from 'rxjs';
 import { Recipe } from 'src/app/models/Recipe';
 
 @Injectable({
@@ -14,7 +14,6 @@ export class RecipeService {
       'Content-type': 'application/json; charset=UTF-8'
     }),
   }
-  recipe$ = new BehaviorSubject<Recipe>(null);
 
   constructor(
     private http: HttpClient
@@ -24,11 +23,19 @@ export class RecipeService {
     return this.http.get<Recipe[]>(this.url, this.httpOptions);
   }
 
+  getRecipesCount(): Observable<number>{
+    return this.http.get<Recipe[]>(this.url, this.httpOptions)
+      .pipe(map(recipes => {
+        return recipes.length;
+      }))
+  }
+
   addRecipe(recipe: Recipe): Observable<Recipe> {
     return this.http.post<Recipe>(this.url, recipe, this.httpOptions);
   }
 
-  updateRecipe(recipe: Recipe, recipeId: string): Observable<Recipe> {
+  updateRecipe(recipe: Recipe): Observable<Recipe> {
+    const recipeId = recipe._id;
     return this.http.patch<Recipe>(`${this.url}/${recipeId}`, recipe, this.httpOptions);
   }
 

@@ -2,6 +2,7 @@ const express = require('express');
 const Recipes = require("../db/schemas/Recipes")
 const auth = require('../middleware/auth');
 const router = new express.Router();
+var mongoose = require('mongoose');
 
 /***  ENDPOINTS ***/
 // @route   POST p-tracker-api/recipes
@@ -35,7 +36,12 @@ router.post('/', auth, async (req,res) => {
 router.get('/', auth, async (req, res) => {
     try {
         const recipes = await Recipes.findOne({ owner : req.user._id});
-        res.status(200).send(recipes.list);
+        if(recipes !== null) {
+            res.status(200).send(recipes.list);
+        }
+        else{
+            res.status(200).send([]);
+        }
     }catch(e){
         res.status(400).send({ error: e.message });
     }
@@ -60,7 +66,7 @@ router.patch('/:id', auth, async (req, res) => {
             if(recipe._id == _id){
                 recipe.name = name;
                 recipe.ingredients = [...ingredients]
-                recipe.nutrients = {_id: recipe.nutrients._id, ...nutrients}
+                recipe.nutrients = {...nutrients}
                 updatedRecipe = recipe
             }
             return recipe;

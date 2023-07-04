@@ -1,0 +1,30 @@
+/* display */
+.img-container{
+    width: 15%;
+    min-width: 70px;
+}
+.food-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+.alt-photo {
+    display: block;
+    font-size: 150%;
+    height: 100%;
+    text-align: center;
+}
+
+.food-title {
+    font-weight: normal;
+    width: 85%;
+}
+.content {
+    width: 85%;
+}
+.food-exta-info {
+    margin-left: 5%;
+}
+.bold {
+    font-weight: 600;
+}

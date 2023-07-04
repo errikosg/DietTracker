@@ -9,10 +9,11 @@
 
 .display {
     width: 85%;
-
 }
 .icons {
     padding-top: 20px;
+    width: 15%;
+    justify-content: center;
 }
 fa-icon {
     margin: 8px;

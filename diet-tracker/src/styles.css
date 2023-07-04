@@ -38,6 +38,10 @@ h2 {
   background-color: var(--warn-hover-color) !important;
 }
 
+.cancel-button {
+  border: 1px solid #aaa !important;
+}
+
 /* containers */
 .flex-row-container {
   display: flex;

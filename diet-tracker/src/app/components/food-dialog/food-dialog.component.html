@@ -1,0 +1,15 @@
+<div class="dialog-container flex-column-container">
+    <div class="measure-form flex-column-container">
+        <h2 class="food-name">{{food.label}}</h2>
+        <div class="measure">
+            <app-measure-form (weight)="onWeightInput($event)"></app-measure-form>
+        </div>
+    </div>
+    <div class="food-info">
+        <app-food-info [nutrients]="food.nutrients" [grams]="weight"></app-food-info>
+    </div>
+    <div class="controls flex-row-container">
+        <button mat-stroked-button class="cancel-button" (click)="onCancel()">CANCEL</button>
+        <button mat-flat-button class="main-button" (click)="onSubmit()">+ ADD INGREDIENT</button>
+    </div>
+</div>
