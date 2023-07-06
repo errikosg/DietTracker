@@ -39,6 +39,9 @@ const recipesSchema = new mongoose.Schema({
             image:{
                 type: String,
             },
+            weight: {
+                type: Number
+            },
             nutrients: nutrientsSchema,
         }],
         nutrients: nutrientsSchema

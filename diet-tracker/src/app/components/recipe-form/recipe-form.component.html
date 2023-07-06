@@ -9,7 +9,7 @@
         <h2 *ngIf="!isEditing">ADD RECIPE</h2>
     </div>
     <div class="recipe-name-container">
-        <input class="recipe-name" placeholder="Recipe Name..." [(ngModel)]="recipe.name">
+        <input class="recipe-name" placeholder="Recipe Name..." [(ngModel)]="recipe.name" (blur)="onBlur()">
     </div>
     <div class="flex-row-container content">
         <div class="flex-column-container ingredients">
@@ -36,6 +36,11 @@
                             color="--calories-color"
                             [macroValue]="recipe.nutrients.calories">
                         </app-macro-display>
+                        <app-percent-bar
+                            [macroPercentage]="this.foodPercentages.calories"
+                            macroName="Calories"
+                            colorClass="calories-bar">
+                        </app-percent-bar>
                     </span>
                     <span class="food-macros-title">
                         <app-macro-display 
@@ -43,6 +48,11 @@
                             color="--protein-color"
                             [macroValue]="recipe.nutrients.protein">
                         </app-macro-display>
+                        <app-percent-bar
+                            [macroPercentage]="foodPercentages.protein"
+                            macroName="Protein"
+                            colorClass="protein-bar">
+                        </app-percent-bar>
                     </span>
                     <span class="food-macros-title">
                         <app-macro-display 
@@ -50,6 +60,11 @@
                             color="--fat-color"
                             [macroValue]="recipe.nutrients.fat">
                         </app-macro-display>
+                        <app-percent-bar
+                            [macroPercentage]="foodPercentages.fat"
+                            macroName="Fat"
+                            colorClass="fat-bar">
+                        </app-percent-bar>
                     </span>
                     <span class="food-macros-title">
                         <app-macro-display 
@@ -57,6 +72,11 @@
                             color="--carbs-color"
                             [macroValue]="recipe.nutrients.carbs">
                         </app-macro-display>
+                        <app-percent-bar
+                            [macroPercentage]="foodPercentages.carbs"
+                            macroName="Carbs"
+                            colorClass="carbs-bar">
+                        </app-percent-bar>
                     </span>
                 </div>
             </div>

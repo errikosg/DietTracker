@@ -4,8 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
 import { Food } from 'src/app/models/Food';
+import { MacroGoals } from 'src/app/models/MacroGoals';
 import { Recipe } from 'src/app/models/Recipe';
 import { EditingRecipeService } from 'src/app/services/editing-recipe/editing-recipe.service';
+import { MacroGoalService } from 'src/app/services/macro-goal/macro-goal.service';
 import { RecipeService } from 'src/app/services/recipe/recipe.service';
 
 @Component({
@@ -19,19 +21,23 @@ export class RecipeFormComponent implements OnInit{
   recipe: Recipe = {
     name: "",
     ingredients: [],
-    nutrients: {
-      calories: 0,
-      protein: 0,
-      fat: 0,
-      carbs: 0
+    nutrients: { 
+      calories: 0, protein: 0, fat: 0, carbs: 0
     }
   };
+  macroGoals: MacroGoals = {
+    calories: 0, protein: 0, carbs: 0, fat:0
+  };
+  foodPercentages = {
+    calories: 0, protein: 0, carbs: 0, fat:0
+  } //for % bars
 
   constructor(
     private recipeService: RecipeService,
     private route: ActivatedRoute, 
     private router: Router,
-    private editingRecipeService: EditingRecipeService
+    private editingRecipeService: EditingRecipeService,
+    private macroGoalService: MacroGoalService
   ){}
 
   ngOnInit(): void {
@@ -45,6 +51,13 @@ export class RecipeFormComponent implements OnInit{
       this.resetNutrients(this.recipe)
       this.updateTotalNutrients(this.recipe)
     }
+
+    this.subscription = this.macroGoalService.macroGoals$.subscribe(macros => {
+      if(macros !== null){
+        this.macroGoals = macros;
+        this.calculatePercentages();
+      }
+    })
   }
 
   onAddIngredient(){
@@ -56,7 +69,7 @@ export class RecipeFormComponent implements OnInit{
   }
 
   onSubmit() {
-    console.log(this.recipe.nutrients)
+    console.log(this.recipe)
     if(this.isEditing){
       // if updating recipe
       if(this.recipe.name === ""){
@@ -87,6 +100,11 @@ export class RecipeFormComponent implements OnInit{
           this.navigateBack()
         })
       }
+      else{
+        this.recipeService.addRecipe(this.recipe).subscribe(() => {
+          this.navigateBack();
+        })
+      }
     }
   }
 
@@ -97,6 +115,10 @@ export class RecipeFormComponent implements OnInit{
     this.updateTotalNutrients(this.recipe);
      // update local storage
      this.editingRecipeService.deleteIngredient(index)
+  }
+
+  onBlur() {
+    this.editingRecipeService.updateRecipeName(this.recipe.name);
   }
 
   // helper functions
@@ -114,6 +136,14 @@ export class RecipeFormComponent implements OnInit{
           recipe.nutrients[nutr] += ingr.nutrients[nutr]
       }
     }
+  }
+
+  calculatePercentages() {
+    const {calories,carbs,fat,protein} = this.recipe.nutrients;
+    this.foodPercentages.calories = (calories/this.macroGoals.calories)*100;
+    this.foodPercentages.carbs = (carbs/this.macroGoals.carbs)*100;
+    this.foodPercentages.fat = (fat/this.macroGoals.fat)*100;
+    this.foodPercentages.protein = (protein/this.macroGoals.protein)*100;
   }
 
   navigateBack() {

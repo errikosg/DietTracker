@@ -15,28 +15,35 @@ export class FoodBaseListComponent implements OnInit{
   pageIndex: number = 0;
   pageSize: number = 5;
   isLoading: boolean = false;
+  errorMsg: string = "";
 
   constructor(
     private foodApiService: FoodAPIService
   ){}
 
   ngOnInit(): void {
-    this.shownFoodList = this.foodApiService.getMockData();
+    // this.shownFoodList = this.foodApiService.getMockData();
   }
 
   onSubmit() {
-    // if(this.searchText !== ""){
-    //   this.isLoading = true;
-    //   this.foodList = [];
-    //   this.shownFoodList = [];
+    if(this.searchText !== ""){
+      this.isLoading = true;
+      this.foodList = [];
+      this.shownFoodList = [];
+      this.errorMsg = ""
 
-    //   // send request
-    //   this.foodApiService.getFoods(this.searchText).subscribe(foods => {
-    //     this.foodList = foods
-    //     this.isLoading = false;
-    //     this.calculateShownFoods()
-    //   })
-    // }
+      // send request
+      this.foodApiService.getFoods(this.searchText).subscribe(foods => {
+        if(foods.length > 0){
+          this.foodList = foods
+          this.calculateShownFoods()
+        }
+        else{
+          this.errorMsg = `No results found for '${this.searchText}'.`
+        }
+        this.isLoading = false;
+      })
+    }
   }
 
   onClearList() {

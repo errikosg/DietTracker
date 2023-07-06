@@ -38,6 +38,7 @@ import { AddIngredientFormComponent } from './components/add-ingredient-form/add
 import { FoodListItemComponent } from './components/food-list-item/food-list-item.component';
 import { FoodDialogComponent } from './components/food-dialog/food-dialog.component';
 import { MeasureFormComponent } from './components/measure-form/measure-form.component';
+import { PercentBarComponent } from './components/percent-bar/percent-bar.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { MeasureFormComponent } from './components/measure-form/measure-form.com
     AddIngredientFormComponent,
     FoodListItemComponent,
     FoodDialogComponent,
-    MeasureFormComponent
+    MeasureFormComponent,
+    PercentBarComponent
   ],
   imports: [
     BrowserModule,

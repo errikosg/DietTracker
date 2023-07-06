@@ -34,6 +34,12 @@ export class EditingRecipeService {
     localStorage.setItem("editingRecipe", JSON.stringify(recipe))
   }
 
+  updateRecipeName(name: string) {
+    const recipe = <Recipe>JSON.parse(localStorage.getItem("editingRecipe"));
+    recipe.name = name;
+    localStorage.setItem("editingRecipe", JSON.stringify(recipe))
+  }
+
   // mode
   setEditingMode(editingMode: boolean){
     localStorage.setItem("editingMode", JSON.stringify(editingMode))

@@ -16,7 +16,6 @@ export class EditMacroGoalsDialogComponent implements OnInit{
   constructor(
     private macroGoalService: MacroGoalService,
     public dialogRef: MatDialogRef<EditMacroGoalsDialogComponent>,
-    // @Optional() @Inject(MAT_DIALOG_DATA) public loadedUser: User
   ) {}
 
   ngOnInit(): void {

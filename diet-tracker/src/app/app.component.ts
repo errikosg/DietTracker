@@ -11,12 +11,10 @@ export class AppComponent implements OnInit{
   
   constructor(
     private authService: AuthService,
-    private macroGoalService: MacroGoalService
   ){}
 
   ngOnInit(): void {
     this.authService.autoLogin();
-    this.macroGoalService.getMacroGoals().subscribe();
   }
   
 }

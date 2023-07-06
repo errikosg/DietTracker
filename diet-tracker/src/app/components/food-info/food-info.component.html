@@ -35,21 +35,33 @@
     <mat-divider></mat-divider>
     <h3>Percent of daily goals</h3>
     <div class="flex-row-container food-percent-bars">
-        <div class="flex-column-container macro-bar">
-            <span>{{ foodPercentages.calories | number: '1.2-2' }}% Calories</span>
-            <mat-progress-bar mode="determinate" [value]="foodPercentages.calories" class="calorie-bar"></mat-progress-bar>
+        <div class="macro">
+            <app-percent-bar
+                [macroPercentage]="foodPercentages.calories"
+                macroName="Calories"
+                colorClass="calories-bar">
+            </app-percent-bar>
         </div>
-        <div class="flex-column-container macro-bar">
-            {{ foodPercentages.protein | number: '1.2-2'}}% Protein
-            <mat-progress-bar mode="determinate" [value]="foodPercentages.protein" class="protein-bar"></mat-progress-bar>
+        <div class="macro">
+            <app-percent-bar
+                [macroPercentage]="foodPercentages.protein"
+                macroName="Protein"
+                colorClass="protein-bar">
+            </app-percent-bar>
         </div>
-        <div class="flex-column-container macro-bar">
-            {{ foodPercentages.fat | number: '1.2-2'}}% Fat
-            <mat-progress-bar mode="determinate" [value]="foodPercentages.fat" class="fat-bar"></mat-progress-bar>
+        <div class="macro">
+            <app-percent-bar
+                [macroPercentage]="foodPercentages.fat"
+                macroName="Fat"
+                colorClass="fat-bar">
+            </app-percent-bar>
         </div>
-        <div class="flex-column-container macro-bar">
-            <span>{{ foodPercentages.carbs | number: '1.2-2'}}% Carbs</span>
-            <mat-progress-bar mode="determinate" [value]="foodPercentages.carbs" class="carbs-bar"></mat-progress-bar>
+        <div class="macro">
+            <app-percent-bar
+                [macroPercentage]="foodPercentages.carbs"
+                macroName="Carbs"
+                colorClass="carbs-bar">
+            </app-percent-bar>
         </div>
     </div>
 </div>

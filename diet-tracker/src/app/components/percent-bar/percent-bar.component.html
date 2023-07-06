@@ -1,0 +1,4 @@
+<div class="flex-column-container macro-bar">
+    <span>{{ macroPercentage | number: '1.2-2' }}% {{macroName}}</span>
+    <mat-progress-bar mode="determinate" [value]="macroPercentage" [ngClass]="colorClass"></mat-progress-bar>
+</div>

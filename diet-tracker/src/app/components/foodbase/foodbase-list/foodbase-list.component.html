@@ -25,6 +25,7 @@
         [hidePageSize]="true"
         (page)="onPageChange($event)">
     </mat-paginator> 
+    <h3 class="no-results-msg" *ngIf="errorMsg!==''"> {{errorMsg}} </h3>
     <div class="food-list">
         <mat-spinner *ngIf="isLoading" [diameter]="70"></mat-spinner>
         <app-foodbase-list-item

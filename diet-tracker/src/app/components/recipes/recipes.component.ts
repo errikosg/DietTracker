@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from 'src/app/models/Recipe';
 import { EditingRecipeService } from 'src/app/services/editing-recipe/editing-recipe.service';
 import { RecipeService } from 'src/app/services/recipe/recipe.service';
+import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
+import { switchMap } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-recipes',
@@ -16,7 +20,9 @@ export class RecipesComponent implements OnInit{
     private recipeService: RecipeService,
     private editingRecipeService: EditingRecipeService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -43,10 +49,27 @@ export class RecipesComponent implements OnInit{
   }
 
   onRecipeDeleted(recipe: Recipe) {
-    this.recipeService.deleteRecipe(recipe._id).subscribe(() => {
-      this.recipeList = this.recipeList.filter(rec => {
-        rec._id !== recipe._id
-      })
+    const alertDialog = this.dialog.open(AlertDialogComponent, {
+      width: '50%',
+      data: `Are you sure you want to delete recipe '${recipe.name}'?`
     })
+
+    let mode = "cancel";
+    alertDialog.afterClosed().pipe(
+      switchMap(res => {
+        if(res && res.event === 'submit'){
+          mode = res.event
+          return this.recipeService.deleteRecipe(recipe._id)
+        }
+        else return []
+      })
+      ).subscribe(() => {
+        if(mode === "submit"){
+          this.recipeList = this.recipeList.filter(rec => {
+            return rec._id !== recipe._id
+          })
+          this.snackBar.open("Recipe deleted successfully", null, { duration: 1500 });
+        }
+      })
   }
 }

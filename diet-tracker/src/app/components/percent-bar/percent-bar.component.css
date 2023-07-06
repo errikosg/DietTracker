@@ -1,0 +1,21 @@
+.macro-bar {
+    padding: 10px;
+}
+.macro-bar>mat-progress-bar {
+    width: 80%;
+    margin-top: 5px;
+}
+
+/* bar colors */
+:host ::ng-deep .calories-bar .mdc-linear-progress__bar-inner {
+    border-color: var(--calories-color) !important;
+}
+:host ::ng-deep .carbs-bar .mdc-linear-progress__bar-inner {
+    border-color: var(--carbs-color) !important;
+}
+:host ::ng-deep .fat-bar .mdc-linear-progress__bar-inner {
+    border-color: var(--fat-color) !important;
+}
+:host ::ng-deep .protein-bar .mdc-linear-progress__bar-inner {
+    border-color: var(--protein-color) !important;
+}
