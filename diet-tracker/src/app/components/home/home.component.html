@@ -1,7 +1,7 @@
 <div class="container">
     <app-header></app-header>
-    <mat-drawer-container class="nav-container" autosize>
-        <mat-drawer #drawer class="drawer-container" mode="side" opened="true">
+    <mat-drawer-container class="drawer-container" autosize>
+        <mat-drawer #drawer class="sidenav-container" mode="side" (openedChange)="onOpenedChanged()">
           <div class="flex-column-container link-list">
             <div>
                 <a [routerLink]="['']" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
@@ -25,8 +25,15 @@
         </mat-drawer>
       
         <mat-drawer-content>
-            <div class="sidenav-content">
-                <router-outlet></router-outlet>
+            <div class="flex-row-container main-container">
+                <div class="toggle-button">
+                    <button type="button" mat-stroked-button (click)="onToggle()" class="cancel-button">
+                        <fa-icon #faIcon [icon]="getIcon()"></fa-icon>
+                    </button>
+                </div>
+                <div class="main-content">
+                    <router-outlet></router-outlet>
+                </div>
             </div>
         </mat-drawer-content>
       

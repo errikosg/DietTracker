@@ -33,7 +33,7 @@
         (page)="onPageChange($event)">
     </mat-paginator> 
     <div class="list-content">
-        <h3 class="no-results-msg" *ngIf="errorMsg!==''"> {{errorMsg}} </h3>
+        <h3 class="list-error-message" *ngIf="errorMsg!==''"> {{errorMsg}} </h3>
         <mat-spinner *ngIf="isLoading" [diameter]="70"></mat-spinner>
         <div class="food-list">
             <app-food-list-item

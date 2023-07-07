@@ -59,3 +59,9 @@ h2 {
   color: var(--warn-color);
   padding-left: 10px;
 }
+
+.list-error-message {
+  margin-top: 20px;
+  text-align: center;
+  font-style: italic;
+}

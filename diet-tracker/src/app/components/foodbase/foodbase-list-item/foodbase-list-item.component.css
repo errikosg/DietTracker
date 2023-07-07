@@ -14,23 +14,3 @@ mat-panel-title {
 mat-expansion-panel-header:hover {
     background-color: transparent !important;
 }
-
-.img-container{
-    width: 60px;
-}
-
-.food-img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-}
-.food-title {
-    margin-left: 15px;
-    font-size: 120%
-}
-.alt-photo {
-    display: block;
-    font-size: 150%;
-    height: 100%;
-    text-align: center;
-}

@@ -4,6 +4,7 @@
         <button mat-flat-button class="main-button" (click)="onAddRecipe()">+ ADD RECIPE</button>
     </div>
     <div class="list-container flex-column-container">
+        <h3 class="list-error-message" *ngIf="emptyMessage!==''"> {{emptyMessage}} </h3>
         <app-recipe-list-item
             *ngFor="let recipe of recipeList"
             [recipe]="recipe"

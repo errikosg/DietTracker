@@ -34,7 +34,7 @@
     </div>
     <mat-divider></mat-divider>
     <h3>Percent of daily goals</h3>
-    <div class="flex-row-container food-percent-bars">
+    <div class="flex-row-container food-percent-bars" *ngIf="macroGoals!==null; else altMacroText">
         <div class="macro">
             <app-percent-bar
                 [macroPercentage]="foodPercentages.calories"
@@ -64,4 +64,7 @@
             </app-percent-bar>
         </div>
     </div>
+    <ng-template #altMacroText>
+        <h3 class="list-error-message">You haven't added any Macro Goals yet.</h3>
+    </ng-template>
 </div>

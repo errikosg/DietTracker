@@ -36,7 +36,7 @@
                             color="--calories-color"
                             [macroValue]="recipe.nutrients.calories">
                         </app-macro-display>
-                        <app-percent-bar
+                        <app-percent-bar *ngIf="macroGoals!==null"
                             [macroPercentage]="this.foodPercentages.calories"
                             macroName="Calories"
                             colorClass="calories-bar">
@@ -48,7 +48,7 @@
                             color="--protein-color"
                             [macroValue]="recipe.nutrients.protein">
                         </app-macro-display>
-                        <app-percent-bar
+                        <app-percent-bar *ngIf="macroGoals!==null"
                             [macroPercentage]="foodPercentages.protein"
                             macroName="Protein"
                             colorClass="protein-bar">
@@ -60,7 +60,7 @@
                             color="--fat-color"
                             [macroValue]="recipe.nutrients.fat">
                         </app-macro-display>
-                        <app-percent-bar
+                        <app-percent-bar *ngIf="macroGoals!==null"
                             [macroPercentage]="foodPercentages.fat"
                             macroName="Fat"
                             colorClass="fat-bar">
@@ -72,7 +72,7 @@
                             color="--carbs-color"
                             [macroValue]="recipe.nutrients.carbs">
                         </app-macro-display>
-                        <app-percent-bar
+                        <app-percent-bar *ngIf="macroGoals!==null"
                             [macroPercentage]="foodPercentages.carbs"
                             macroName="Carbs"
                             colorClass="carbs-bar">

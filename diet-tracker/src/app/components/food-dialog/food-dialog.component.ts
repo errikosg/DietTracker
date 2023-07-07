@@ -30,9 +30,6 @@ export class FoodDialogComponent {
       this.food.weight = this.weight;
       this.dialogRef.close({ event: 'submit', data: this.food });
     }
-    else {
-      this.onCancel();
-    }
   }
 
   updateFoodNutrients() {

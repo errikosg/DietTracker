@@ -13,12 +13,7 @@ export class FoodInfoComponent implements OnInit, OnChanges {
   @Input() nutrients: Nutrients;  //per 100g
   @Input() grams: number;
   subscription: Subscription;
-  macroGoals: MacroGoals = {
-    calories: 0,
-    protein: 0,
-    carbs: 0,
-    fat:0
-  };
+  macroGoals: MacroGoals = null;
   foodPercentages = {
     calories: 0,
     protein: 0,
@@ -48,9 +43,10 @@ export class FoodInfoComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['grams'].previousValue !== undefined){
-      // console.log(changes['grams'])
       this.calculateNutrientValues();
-      this.calculatePercentages();
+      if(this.macroGoals !== null) {
+        this.calculatePercentages();
+      }
     }
   }
 

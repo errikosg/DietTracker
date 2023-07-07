@@ -15,7 +15,7 @@ import { RecipeService } from 'src/app/services/recipe/recipe.service';
   templateUrl: './recipe-form.component.html',
   styleUrls: ['./recipe-form.component.css']
 })
-export class RecipeFormComponent implements OnInit{
+export class RecipeFormComponent implements OnInit, OnDestroy{
   isEditing: boolean = false;
   subscription: Subscription
   recipe: Recipe = {
@@ -25,9 +25,10 @@ export class RecipeFormComponent implements OnInit{
       calories: 0, protein: 0, fat: 0, carbs: 0
     }
   };
-  macroGoals: MacroGoals = {
-    calories: 0, protein: 0, carbs: 0, fat:0
-  };
+  // macroGoals: MacroGoals = {
+  //   calories: 0, protein: 0, carbs: 0, fat:0
+  // };
+  macroGoals: MacroGoals = null;
   foodPercentages = {
     calories: 0, protein: 0, carbs: 0, fat:0
   } //for % bars
@@ -53,6 +54,7 @@ export class RecipeFormComponent implements OnInit{
     }
 
     this.subscription = this.macroGoalService.macroGoals$.subscribe(macros => {
+      console.log(macros)
       if(macros !== null){
         this.macroGoals = macros;
         this.calculatePercentages();
@@ -148,5 +150,9 @@ export class RecipeFormComponent implements OnInit{
 
   navigateBack() {
     this.router.navigate(['./recipes']);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
   }
 }

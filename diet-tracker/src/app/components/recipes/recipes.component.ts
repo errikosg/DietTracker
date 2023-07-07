@@ -15,6 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class RecipesComponent implements OnInit{
   recipeList: Recipe[] = []
+  emptyMessage: string = "";
 
   constructor(
     private recipeService: RecipeService,
@@ -27,7 +28,13 @@ export class RecipesComponent implements OnInit{
 
   ngOnInit(): void {
     this.recipeService.getRecipes().subscribe(recipes => {
-      this.recipeList = recipes
+      if(recipes.length > 0) {
+        this.recipeList = recipes
+        this.emptyMessage = ""
+      }
+      else {
+        this.emptyMessage = "You haven't added any recipes yet."
+      }
     })
   }
 

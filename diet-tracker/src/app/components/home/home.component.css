@@ -1,11 +1,25 @@
-.nav-container {
-    height: 600px;
+.drawer-container {
+    height:91vh;
 }
 
-.drawer-container {
+.sidenav-container {
     width: 180px;
     padding: 15px;
-    border-right: 2px solid var(--link-color);
+    border-right: 1px solid var(--link-color);
+}
+.main-container {
+    height: 90vh;
+}
+.toggle-button{
+    width: 5%;
+    /* border-right: 1px solid; */
+    padding: 5px;
+}
+.toggle-button>button {
+    margin-top: 10px;
+}
+.main-content {
+    width: 95%
 }
 
 .link-list {

@@ -6,7 +6,8 @@
             <mat-form-field>
                 <mat-label>Calories</mat-label>
                 <input matInput
-                    type="number" 
+                    type="number"
+                    min="0" 
                     name="calories"
                     formControlName="calories"
                     >
@@ -20,7 +21,8 @@
             <mat-form-field>
                 <mat-label>Protein</mat-label>
                 <input matInput
-                    type="number" 
+                    type="number"
+                    min="0" 
                     name="protein"
                     formControlName="protein"
                     >
@@ -35,6 +37,7 @@
                 <mat-label>Fat</mat-label>
                 <input matInput
                     type="number" 
+                    min="0" 
                     name="fat"
                     formControlName="fat"
                     >
@@ -48,12 +51,13 @@
             <mat-form-field class="form-field">
                 <mat-label>Carbs</mat-label>
                 <input matInput
-                    type="number" 
+                    type="number"
+                    min="0"  
                     name="carbs"
                     formControlName="carbs"
                     >
                 <mat-error *ngIf="!macrosForm.get('carbs').valid && macrosForm.get('carbs').touched">
-                    Please enter a username
+                    Please enter a value
                 </mat-error>
             </mat-form-field>
         </div>
