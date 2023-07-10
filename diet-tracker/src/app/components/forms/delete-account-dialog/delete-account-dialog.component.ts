@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
@@ -7,8 +8,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   templateUrl: './delete-account-dialog.component.html',
   styleUrls: ['./delete-account-dialog.component.css']
 })
-export class DeleteAccountDialogComponent {
-  password:string = null;
+export class DeleteAccountDialogComponent implements OnInit{
+  passForm: FormGroup
   error: string = null;
 
   constructor(
@@ -16,12 +17,17 @@ export class DeleteAccountDialogComponent {
     public dialogRef: MatDialogRef<DeleteAccountDialogComponent>
   ){}
 
-  onEnterPassword(){
-    if(this.password === "") {
-      this.error = "Please enter your password"
-    }
-    else{
-      this.authService.confirmPassword(this.password).subscribe({
+  ngOnInit(): void {
+    this.passForm = new FormGroup({
+      password: new FormControl(null, Validators.required)
+    })
+  }
+
+  onSubmit(){
+    console.log(this.passForm.value)
+    if(this.passForm.valid) {
+      const {password} = this.passForm.value
+      this.authService.confirmPassword(password).subscribe({
         next: () => this.nextHandler(),
         error: (err) => this.errorHandler(err)
       })

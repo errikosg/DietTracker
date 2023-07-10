@@ -3,20 +3,17 @@
         <h2>Confirm Identity</h2>
         <mat-divider></mat-divider>
         <i class="description">Please re-enter your password to continue</i>
-        <mat-form-field>
-            <mat-label>Password</mat-label>
-            <input matInput 
-                placeholder="Your password ..." 
-                type="password"
-                name="password"
-                [(ngModel)]="password"
-                required>
-        </mat-form-field>
-        <i class="server-error-message" *ngIf="error"> {{error}} </i>
-        <div class="flex-row-container pass-buttons">
-            <button mat-flat-button class="main-button" (click)="onEnterPassword()">CONTINUE</button>
-            <button mat-stroked-button class="cancel-button" (click)="onCancel()">CANCEL</button>
-        </div>
+        <form [formGroup]="passForm" (ngSubmit)="onSubmitPassword()">
+            <app-custom-password
+                [passwordFormGroup]="passForm"
+                controlName="password">
+            </app-custom-password>
+            <i class="server-error-message" *ngIf="error"> {{error}} </i>
+            <div class="flex-row-container pass-buttons">
+                <button mat-flat-button type="submit" class="main-button">CONTINUE</button>
+                <button mat-stroked-button type="button" class="cancel-button" (click)="onCancel()">CANCEL</button>
+            </div>
+        </form>
     </div>
 
     <ng-template #emailFormTemp>

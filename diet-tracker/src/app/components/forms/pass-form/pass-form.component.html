@@ -1,38 +1,21 @@
 <div class="form-container">
     <form class="flex-column-container" [formGroup]="passForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)" >
         <h2>Change Password</h2>
-        <mat-form-field>
-            <mat-label>Current Password</mat-label>
-            <input matInput 
-                placeholder="Your username..." 
-                type="password"
-                name="password"
-                formControlName="currentPass">
-            <mat-error *ngIf="!passForm.get('currentPass').valid && passForm.get('currentPass').touched">
-                Please enter your current password
-            </mat-error>
-        </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>New Password</mat-label>
-            <input matInput 
-                placeholder="Your username..." 
-                type="password"
-                name="password"
-                formControlName="newPass">
-        </mat-form-field>
+        <app-custom-password
+            [passwordFormGroup]="passForm"
+            controlName="currentPass">
+        </app-custom-password>
 
-        <mat-form-field>
-            <mat-label>Confirm Password</mat-label>
-            <input matInput 
-                placeholder="Your username..." 
-                type="password"
-                name="password"
-                formControlName="confirmPass">
-            <mat-error *ngIf="!passForm.get('confirmPass').valid && passForm.get('confirmPass').touched">
-                Please confirm new password correctly
-            </mat-error>
-        </mat-form-field>
+        <app-custom-password
+            [passwordFormGroup]="passForm"
+            controlName="newPass">
+        </app-custom-password>
+
+        <app-custom-password
+            [passwordFormGroup]="passForm"
+            controlName="confirmPass">
+        </app-custom-password>
 
         <i class="server-error-message" *ngIf="error"> {{error}} </i>
         <button mat-flat-button class="main-button" type="submit">SUBMIT</button>

@@ -25,17 +25,10 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="form-field">
-                <mat-label>Password</mat-label>
-                <input matInput
-                    type="password" 
-                    name="password"
-                    formControlName="password"
-                    placeholder="Password ...">
-                <mat-error *ngIf="!form.get('password').valid && form.get('password').touched">
-                    Please enter a valid password
-                </mat-error>
-            </mat-form-field>
+            <app-custom-password
+                [passwordFormGroup]="form"
+                controlName="password">
+            </app-custom-password>
 
             <i class="server-error-message" *ngIf="error"> {{error}} </i>
             <div class="form-buttons">

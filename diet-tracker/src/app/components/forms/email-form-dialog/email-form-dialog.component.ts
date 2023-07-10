@@ -11,8 +11,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class EmailFormDialogComponent implements OnInit{
   authorized: boolean = false;
-  password: string = "";
   error: string = null;
+  passForm: FormGroup;
   emailForm: FormGroup;
 
   constructor(
@@ -22,17 +22,18 @@ export class EmailFormDialogComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
+    this.passForm = new FormGroup({
+      password: new FormControl(null, Validators.required)
+    })
     this.emailForm = new FormGroup({
-      'email': new FormControl(null, [Validators.required, Validators.email])
+      email: new FormControl(null, [Validators.required, Validators.email])
     })
   }
 
-  onEnterPassword() {
-    if(this.password === "") {
-      this.error = "Please enter your password"
-    }
-    else{
-      this.authService.confirmPassword(this.password).subscribe({
+  onSubmitPassword() {
+    if(this.passForm.valid) {
+      const {password} = this.passForm.value
+      this.authService.confirmPassword(password).subscribe({
         next: () => this.nextHandler(),
         error: (err) => this.errorHandler(err)
       })

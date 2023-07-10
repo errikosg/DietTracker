@@ -2,18 +2,15 @@
     <h2>Confirm password</h2>
     <mat-divider></mat-divider>
     <i class="description">Please re-enter your password to continue</i>
-    <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput 
-            placeholder="Your password ..." 
-            type="password"
-            name="password"
-            [(ngModel)]="password"
-            required>
-    </mat-form-field>
-    <i class="server-error-message" *ngIf="error"> {{error}} </i>
-    <div class="flex-row-container buttons">
-        <button mat-flat-button class="warn-button" (click)="onEnterPassword()">DELETE</button>
-        <button mat-stroked-button class="cancel-button" (click)="onCancel()">CANCEL</button>
-    </div>
+    <form [formGroup]="passForm" (ngSubmit)="onSubmit()">
+        <app-custom-password
+            [passwordFormGroup]="passForm"
+            controlName="password">
+        </app-custom-password>
+        <i class="server-error-message" *ngIf="error"> {{error}} </i>
+        <div class="flex-row-container buttons">
+            <button mat-flat-button class="warn-button" type="submit">DELETE</button>
+            <button mat-stroked-button class="cancel-button" (click)="onCancel()" type="button">CANCEL</button>
+        </div>
+    </form>
 </div>
