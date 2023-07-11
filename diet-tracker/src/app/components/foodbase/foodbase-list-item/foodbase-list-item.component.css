@@ -14,3 +14,14 @@ mat-panel-title {
 mat-expansion-panel-header:hover {
     background-color: transparent !important;
 }
+
+@media screen and (max-width:500px) {
+    mat-expansion-panel {
+        min-height: 70px;
+        padding-top: 30px;
+    }
+
+    mat-expansion-panel-header {
+        margin-bottom: 10px;
+    }
+}

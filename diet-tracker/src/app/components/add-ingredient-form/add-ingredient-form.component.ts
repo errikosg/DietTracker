@@ -68,4 +68,8 @@ export class AddIngredientFormComponent implements OnInit{
   onCancel() {
     this.router.navigate(['./recipes/edit'])
   }
+
+  getSpinnerDiameter() {
+    return window.innerWidth > 500 ? 70 : 50;
+  }
 }

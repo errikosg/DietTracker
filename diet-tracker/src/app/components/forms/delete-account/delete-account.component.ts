@@ -12,17 +12,17 @@ export class DeleteAccountComponent {
 
   constructor(
     private authService: AuthService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ){}
 
   onDelete() {
+    const dialogWidth = window.innerWidth > 500 ? "50%" : "80%";
     const deleteAccountDialog = this.dialog.open(DeleteAccountDialogComponent, {
-      width: '50%'
+      width: dialogWidth
     });
     deleteAccountDialog.afterClosed().subscribe((res) => {
       if(res && res.event === 'submit'){
         // logout ....
-        console.log("deletingg..")
         this.authService.deleteAccount();
       }
     });

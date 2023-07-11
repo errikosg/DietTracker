@@ -17,7 +17,7 @@ import { MacroGoalService } from 'src/app/services/macro-goal/macro-goal.service
 })
 export class ProfileComponent implements OnInit{
   faPen = faPen; faTrash = faTrash;
-  currentUser: User = null
+  currentUser: User = null;
 
   constructor(
     private authService: AuthService,
@@ -35,10 +35,10 @@ export class ProfileComponent implements OnInit{
       })
     ).subscribe()
   }
-
   onUpdateMacros() {
+    const dialogWidth = window.innerWidth > 500 ? "50%" : "80%";
     const editMacrosDialog = this.dialog.open(EditMacroGoalsDialogComponent, {
-      width: '50%'
+      width: dialogWidth
     });
     editMacrosDialog.afterClosed().subscribe((res) => {
       if(res && res.event === 'submit'){
@@ -48,8 +48,9 @@ export class ProfileComponent implements OnInit{
   }
 
   onDeleteMacros() {
+    const dialogWidth = window.innerWidth > 500 ? "50%" : "80%";
     const alertDialog = this.dialog.open(AlertDialogComponent, {
-      width: '50%',
+      width: dialogWidth,
       data: "Are you sure you want to delete your Macro Goals?"
     });
 

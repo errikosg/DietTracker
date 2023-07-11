@@ -17,3 +17,9 @@ mat-divider{
 .macro {
     flex: 0 0 25%;
 }
+
+@media screen and (max-width:500px) {
+    .food-macros, .food-percent-bars {
+        flex-direction: column;
+    }
+}

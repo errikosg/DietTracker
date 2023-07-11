@@ -37,9 +37,10 @@ export class EmailFormComponent implements OnInit, OnDestroy{
   }
 
   onOpenFormDialog() {
+    const dialogWidth = window.innerWidth > 500 ? "50%" : "80%";
     const emailFormDialog = this.dialog.open(EmailFormDialogComponent, {
       data: this.currentUser,
-      width: '50%'
+      width: dialogWidth
     });
     emailFormDialog.afterClosed().subscribe((res) => {
       if(res && res.event === 'submit'){

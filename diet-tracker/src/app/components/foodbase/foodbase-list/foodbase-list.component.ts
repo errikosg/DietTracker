@@ -62,4 +62,8 @@ export class FoodBaseListComponent implements OnInit{
     let startIndex = this.pageIndex * this.pageSize;
     this.shownFoodList = this.foodList.slice(startIndex, startIndex+this.pageSize)
   }
+
+  getSpinnerDiameter() {
+    return window.innerWidth > 500 ? 70 : 50;
+  }
 }

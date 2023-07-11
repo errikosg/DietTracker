@@ -70,3 +70,16 @@
 .food-macros-title {
     margin-bottom: 12px;
 }
+
+@media screen and (max-width: 600px) {
+    .content {
+        flex-direction: column;
+        flex-flow: column-reverse;
+    }
+    .content > div {
+        width: 80%;
+    }
+    .control-buttons > button {
+        width: 30%;
+    }
+}

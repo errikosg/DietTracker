@@ -28,3 +28,15 @@
 .bold {
     font-weight: 600;
 }
+
+@media screen and (max-width:500px) {
+    .img-container{
+        min-width: 55px;
+    }
+    .food-title {
+        font-size: 140%;
+    }
+    .food-exta-info {
+        font-size: 80%;
+    }
+}

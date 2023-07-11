@@ -12,14 +12,15 @@
 }
 .toggle-button{
     width: 5%;
-    /* border-right: 1px solid; */
     padding: 5px;
+    /* border: 1px solid red; */
 }
 .toggle-button>button {
     margin-top: 10px;
 }
 .main-content {
-    width: 95%
+    width: 95%;
+    /* border: 1px solid; */
 }
 
 .link-list {
@@ -48,4 +49,12 @@ a:active, a:visited, a:link {
     text-decoration: none;
 }
 
-/* reactive? */
+/* responsive */
+@media screen and (max-width: 1250px) {
+    .main-container {
+        flex-direction: column;
+    }
+    .main-container > div {
+        width: 100%;
+    }
+}

@@ -31,3 +31,10 @@ fa-icon:hover {
     margin: auto;
     margin-bottom: 20px;
 }
+
+/* responsive */
+@media screen and (max-width: 500px) {
+    .info-box {
+        width: 80%;
+    }
+}

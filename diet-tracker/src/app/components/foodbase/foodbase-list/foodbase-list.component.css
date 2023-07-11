@@ -29,3 +29,9 @@ mat-spinner {
 :host::ng-deep .mdc-circular-progress__indeterminate-circle-graphic {
     stroke: var(--main-color) !important;
   }
+
+@media screen and (max-width:500px) {
+    .main-button, .clear-button {
+        width: 30%;
+    }
+}

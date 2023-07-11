@@ -27,3 +27,12 @@
 .controls >button {
     width: 30%;
 }
+
+@media screen and (max-width:500px) {
+    .measure {
+        width: 100%;
+    }
+    .controls >button {
+        width: 40%;
+    }
+}

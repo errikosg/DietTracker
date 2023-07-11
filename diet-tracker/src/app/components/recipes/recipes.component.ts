@@ -56,8 +56,9 @@ export class RecipesComponent implements OnInit{
   }
 
   onRecipeDeleted(recipe: Recipe) {
+    const dialogWidth = window.innerWidth > 500 ? "50%" : "80%";
     const alertDialog = this.dialog.open(AlertDialogComponent, {
-      width: '50%',
+      width: dialogWidth,
       data: `Are you sure you want to delete recipe '${recipe.name}'?`
     })
 

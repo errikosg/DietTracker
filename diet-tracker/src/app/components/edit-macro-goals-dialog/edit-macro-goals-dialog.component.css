@@ -14,3 +14,9 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+@media screen and (max-width: 1250px) {
+    .control-buttons {
+        width: 100%;
+    }
+}

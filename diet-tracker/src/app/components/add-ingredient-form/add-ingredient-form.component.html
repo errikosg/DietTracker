@@ -34,7 +34,7 @@
     </mat-paginator> 
     <div class="list-content">
         <h3 class="list-error-message" *ngIf="errorMsg!==''"> {{errorMsg}} </h3>
-        <mat-spinner *ngIf="isLoading" [diameter]="70"></mat-spinner>
+        <mat-spinner *ngIf="isLoading" [diameter]="getSpinnerDiameter()"></mat-spinner>
         <div class="food-list">
             <app-food-list-item
                 *ngFor="let food of shownFoodList"

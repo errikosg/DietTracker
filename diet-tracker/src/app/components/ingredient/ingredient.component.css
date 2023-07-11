@@ -24,3 +24,9 @@ fa-icon:hover {
     color: var(--hover-color);
     cursor: pointer;
 }
+
+@media screen and (max-width:500px) {
+    .display {
+        padding-top: 10px;
+    }
+}

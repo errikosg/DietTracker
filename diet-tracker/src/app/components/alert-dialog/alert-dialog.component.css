@@ -15,3 +15,9 @@ h3 {
 .buttons > button {
     width:40%
 }
+
+@media screen and (max-width: 500px){
+    .buttons {
+        width: 100%;
+    }
+}

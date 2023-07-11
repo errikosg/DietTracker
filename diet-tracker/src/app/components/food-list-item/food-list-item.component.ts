@@ -24,6 +24,7 @@ export class FoodListItemComponent {
     // open food info modal
     const foodDialog = this.dialog.open(FoodDialogComponent, {
       data: this.food,
+      maxHeight: '90vh',
       width: '80%'
     })
     foodDialog.afterClosed().subscribe((res) => {

@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Recipe } from 'src/app/models/Recipe';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { RecipeService } from 'src/app/services/recipe/recipe.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EditingRecipeService } from 'src/app/services/editing-recipe/editing-recipe.service';
 
@@ -16,7 +15,6 @@ export class RecipeListItemComponent implements OnInit{
   faPen = faPen; faTrash = faTrash;
 
   constructor(
-    private recipeService: RecipeService,
     private router: Router,
     private route: ActivatedRoute,
     private editingRecipeService: EditingRecipeService

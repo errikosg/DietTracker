@@ -1,7 +1,8 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { faHouse, faBook, faAppleWhole, faBars, faX } from '@fortawesome/free-solid-svg-icons';
+import { Subscription } from 'rxjs';
 import { MacroGoalService } from 'src/app/services/macro-goal/macro-goal.service';
 
 @Component({
@@ -9,9 +10,10 @@ import { MacroGoalService } from 'src/app/services/macro-goal/macro-goal.service
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, AfterViewInit{
-  @ViewChild('drawer', { static: true }) public drawer!: MatDrawer;
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
+  @ViewChild('drawer', { static: true }) public drawer: MatDrawer;
   toggled: boolean = false;
+  subscription: Subscription
 
   faHouse = faHouse; faBook=faBook; faFood=faAppleWhole;
   faBars=faBars; faX=faX;
@@ -26,8 +28,8 @@ export class HomeComponent implements OnInit, AfterViewInit{
   }
 
   ngAfterViewInit(): void {
-    this.observer.observe(["(max-width: 850px)"]).subscribe((res) => {
-      if (res.matches) {
+    this.subscription = this.observer.observe(["(max-width: 850px)"]).subscribe((res) => {
+      if (res && res.matches) {
         this.drawer.mode = 'over'
         this.drawer.close()
       }
@@ -49,5 +51,9 @@ export class HomeComponent implements OnInit, AfterViewInit{
   getIcon() {
     if(this.toggled) return faX;
     else return faBars;
+  }
+
+  ngOnDestroy(): void {
+    if(this.subscription) this.subscription.unsubscribe()
   }
 }

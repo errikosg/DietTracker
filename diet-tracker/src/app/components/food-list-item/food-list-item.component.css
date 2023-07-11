@@ -1,22 +1,35 @@
 .container {
-    width: 60%;
+    width: 100%;
     margin:auto;
     justify-content: space-between;
     padding-left: 10px;
     border: 1px solid;
     border-radius: 8px;
     margin-bottom: 20px;
-    /* min-height: 50px; */
 }
 .display {
-    width: 75%;
+    width: 85%;
 }
 
 .add-button {
-    width: 25%;
+    width: 15%;
 }
 .add-button>button {
     margin: auto;
     display: block;
-    margin-top: 20px;
+    margin-top: 40px;
+}
+@media screen and (max-width: 950px) {
+    .add-button>button {
+        margin-top: 20px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .container {
+        flex-direction: column;
+        padding: 5px;
+    }
+    .add-button {
+        width: 100%;
+    }
 }

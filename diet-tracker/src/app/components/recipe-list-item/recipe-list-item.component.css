@@ -5,6 +5,7 @@
     border-radius: 4px;
     margin: 0px 0px 20px 15px;
     justify-content: space-between;
+    border: 1px solid;
 }
 
 .display {
@@ -23,4 +24,16 @@ fa-icon {
 fa-icon:hover {
     color: var(--hover-color);
     cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        width: 80%;
+    }
+    .display {
+        width: 80%;
+    }
+    .icons {
+        width: 20%
+    }
 }

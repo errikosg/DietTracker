@@ -29,18 +29,27 @@
 
 .food-list {
     padding: 20px 20px 0px;
+    width: 60%;
+    margin: auto;
 }
 
 mat-paginator {
     margin-top: 30px;
     background-color: transparent;
 }
-/* ::ng-deep .mat-mdc-paginator-container {
-    justify-content: flex-start !important;
-} */
 mat-spinner {
     margin: auto;
 }
 :host::ng-deep .mdc-circular-progress__indeterminate-circle-graphic {
     stroke: var(--main-color) !important;
-  }
+}
+
+/* responsive */
+@media screen and (max-width: 500px) {
+    .control-button>button, .main-button, .clear-button {
+        width: 30%
+    }
+    .food-list {
+        width: 80%;
+    }
+}
