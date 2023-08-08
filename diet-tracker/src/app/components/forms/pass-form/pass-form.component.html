@@ -4,17 +4,20 @@
 
         <app-custom-password
             [passwordFormGroup]="passForm"
-            controlName="currentPass">
+            controlName="currentPass"
+            labelText="Current Password">
         </app-custom-password>
 
         <app-custom-password
             [passwordFormGroup]="passForm"
-            controlName="newPass">
+            controlName="newPass"
+            labelText="New Password">
         </app-custom-password>
 
         <app-custom-password
             [passwordFormGroup]="passForm"
-            controlName="confirmPass">
+            controlName="confirmPass"
+            labelText="Confirm Password">
         </app-custom-password>
 
         <i class="server-error-message" *ngIf="error"> {{error}} </i>

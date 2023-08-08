@@ -14,6 +14,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --carbs-color: rgb(35,118,115);
     --fat-color: rgb(129,6,144);
     --protein-color: rgb(245,182,19);
+
+    --main-lighter1: #96c6e4;
+    --main-lighter2: #bddbef;
   }
 
 h2 {

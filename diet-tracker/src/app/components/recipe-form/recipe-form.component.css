@@ -44,6 +44,8 @@
 .title{
     font-weight:normal;
     text-align: center;
+    background-color:var(--main-lighter2);
+    border-radius: 8px;
 }
 
 .ingredients {
@@ -56,12 +58,13 @@
 
 
 .total-nutrients {
-    padding: 25px;
+    padding: 20px;
 }
 .nutrients-table {
     border: 1px solid grey;
     border-radius: 8px;
     padding: 20px;
+    margin-top: 55px;
 }
 .macros {
     width: 80%;
@@ -81,5 +84,8 @@
     }
     .control-buttons > button {
         width: 30%;
+    }
+    .nutrients-table {
+        margin-top: 10px;
     }
 }

@@ -25,7 +25,8 @@ const recipesSchema = new mongoose.Schema({
     list: [{
         name: {
             type: String,
-            required: true
+            required: true,
+            trim : true
         },
         ingredients:[{
             foodId:{

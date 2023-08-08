@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnDestroy, ViewChild, forwardRef } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
@@ -14,11 +14,12 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
     multi: true,
   }]
 })
-export class CustomPasswordComponent implements ControlValueAccessor, OnDestroy{
+export class CustomPasswordComponent implements ControlValueAccessor, OnDestroy, OnChanges{
   _onChanged: Function = () => {};
   _onTouched: Function = () => {};
   @Input() passwordFormGroup: FormGroup;
   @Input() controlName: string;
+  @Input() labelText: string = "Password"
   @ViewChild('passInput') passInput: ElementRef
   subscription: Subscription
 
@@ -35,6 +36,13 @@ export class CustomPasswordComponent implements ControlValueAccessor, OnDestroy{
   writeValue(value: string | null): void {
     if(value) {
       this.passwordFormGroup.setValue({password:value})
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['labelText'].currentValue){
+      console.log("YES")
+      this.labelText = changes['labelText'].currentValue
     }
   }
 

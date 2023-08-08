@@ -1,6 +1,6 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const User = require("../db/schemas/User");
+const Consumptions = require("../db/schemas/Consumptions")
 const auth = require('../middleware/auth');
 
 const router = new express.Router();
@@ -24,6 +24,14 @@ router.post('/', async (req, res) => {
 
     try {
         await user.save();
+
+        // create consumption
+        const consumptions = new Consumptions({
+            logEntries: [],
+            owner: user._id
+        })
+        await consumptions.save();
+
         const token = await user.generateAuthToken();
         res.status(201).send({
             user,
@@ -88,6 +96,7 @@ router.post('/logoutAll', auth, async (req, res) => {
 router.delete('/me', auth, async (req, res) => {
     try {
         await User.findByIdAndRemove(req.user._id);
+        await Consumptions.findOneAndRemove({ owner : req.user._id })
         res.status(200).send({msg: 'User removed'});
     } catch (e) {
         //Bad request

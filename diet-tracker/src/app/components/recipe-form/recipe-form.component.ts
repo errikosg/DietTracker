@@ -115,6 +115,7 @@ export class RecipeFormComponent implements OnInit, OnDestroy{
     this.recipe.ingredients.splice(index,1)
     this.resetNutrients(this.recipe)
     this.updateTotalNutrients(this.recipe);
+    this.calculatePercentages();
      // update local storage
      this.editingRecipeService.deleteIngredient(index)
   }

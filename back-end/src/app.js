@@ -20,4 +20,8 @@ app.use(`${baseURL}/macro-goals`, mgoalsRouter);
 const recipesRouter = require('./routers/recipes');
 app.use(`${baseURL}/recipes`, recipesRouter);
 
+//consumptions
+const consumptionsRouter = require('./routers/consumptions');
+app.use(`${baseURL}/consumptions`, consumptionsRouter);
+
 module.exports = app
