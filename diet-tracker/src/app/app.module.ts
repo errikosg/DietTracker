@@ -39,6 +39,9 @@ import { FoodListItemComponent } from './components/food-list-item/food-list-ite
 import { FoodDialogComponent } from './components/food-dialog/food-dialog.component';
 import { MeasureFormComponent } from './components/measure-form/measure-form.component';
 import { PercentBarComponent } from './components/percent-bar/percent-bar.component';
+import { DateHeaderComponent } from './components/date-header/date-header.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
 
 
 @NgModule({
@@ -72,7 +75,9 @@ import { PercentBarComponent } from './components/percent-bar/percent-bar.compon
     FoodListItemComponent,
     FoodDialogComponent,
     MeasureFormComponent,
-    PercentBarComponent
+    PercentBarComponent,
+    DateHeaderComponent,
+    DonutChartComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +88,8 @@ import { PercentBarComponent } from './components/percent-bar/percent-bar.compon
     AppRoutingModule,
     AuthModule,
     MaterialModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgApexchartsModule
   ],
   providers: [
     {

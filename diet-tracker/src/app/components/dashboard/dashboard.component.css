@@ -1,0 +1,62 @@
+.dashboard-container {
+    /* border: 1px solid; */
+    padding: 20px;
+}
+
+.today {
+    margin-right: 10px;
+}
+
+.date-container {
+    justify-content: center;
+}
+
+.profile-link {
+    color: var(--main-color);
+}
+
+.dashboard-content-container {
+    width: 90%;
+    margin: auto;
+}
+
+.log-history-button {
+    width: 20%;
+    margin-bottom: 20px;
+}
+
+.calorie-remainder-container {
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+.remain-calories {
+    font-size: 300%;
+}
+
+.donut-charts-container {
+    margin-top: 20px;
+}
+.donut-charts-container-row {
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+/* responsive */
+@media screen and (max-width: 710px) {
+    .donut-charts-container-row {
+        width: 70%;
+        flex-direction: column;
+        margin-bottom: 0px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .donut-charts-container-row {
+        width: 80%;
+        margin-bottom: 0px;
+    }
+    .log-history-button {
+        width: 30%;
+    }
+}

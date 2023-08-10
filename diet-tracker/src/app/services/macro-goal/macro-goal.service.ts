@@ -22,7 +22,8 @@ export class MacroGoalService {
 
   getMacroGoals(): Observable<MacroGoals> {
     return this.http.get<MacroGoals>(this.url, this.httpOptions)
-    .pipe(map(macros => {
+    .pipe(
+      map(macros => {
       this.macroGoals$.next(macros);
       return macros;
     }))

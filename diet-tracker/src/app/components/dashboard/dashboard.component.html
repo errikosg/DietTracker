@@ -1,3 +1,60 @@
-<div>
-    <p>dashboard works</p>
+<div class="dashboard-container">
+    <div class="flex-row-container date-container">
+        <h2 class="today">TODAY:</h2>
+        <app-date-header></app-date-header>
+    </div>
+
+    <div class="dashboard-content-container flex-column-container" *ngIf="macroGoalsAdded; else noMacros">
+        <button mat-flat-button class="main-button log-history-button">LOG HISTORY</button>
+        <mat-divider></mat-divider>
+        
+        <div class="flex-row-container calorie-remainder-container">
+            <h3 class="calorie-header">
+                <span class="remain-calories" [ngStyle]="{color: getCalorieColor()}">{{remainCalories}}</span>
+                 kcal remain for today
+            </h3>
+            <button mat-flat-button class="main-button">+ ADD LOG</button>
+        </div>
+
+        <div class="flex-column-container donut-charts-container" *ngIf="consumptions!==null; else noConsumptions">
+            <div class="flex-row-container donut-charts-container-row">
+                <app-donut-chart
+                    [macroValue]=consumptions.totalMacros.calories
+                    [macroGoalValue]=userMacroGoals.calories
+                    macroName="Calories">
+                </app-donut-chart>
+                <app-donut-chart
+                    [macroValue]=consumptions.totalMacros.protein
+                    [macroGoalValue]=userMacroGoals.protein
+                    macroName="Protein">
+                </app-donut-chart>
+            </div>
+            <div class="flex-row-container donut-charts-container-row">
+                <app-donut-chart
+                    [macroValue]=consumptions.totalMacros.fat
+                    [macroGoalValue]=userMacroGoals.fat
+                    macroName="Fat">
+                </app-donut-chart>
+                <app-donut-chart
+                    [macroValue]=consumptions.totalMacros.carbs
+                    [macroGoalValue]=userMacroGoals.carbs
+                    macroName="Carbs">
+                </app-donut-chart>
+            </div>
+        </div>
+
+        <ng-template #noConsumptions>
+            <h3 class="list-error-message">
+                You haven't logged any food consumptions for today. Log to track your progress.
+            </h3>
+        </ng-template>
+    </div>
+
+    <ng-template #noMacros>
+        <h3 class="list-error-message">
+            You haven't added Macro Goals yet. Go to your
+            <a [routerLink]="['profile']" class="profile-link">profile</a>
+            to add your daily macronutrients goals and start keeping track of your progress!
+        </h3>
+    </ng-template>
 </div>
