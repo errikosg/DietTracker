@@ -5,7 +5,9 @@
     </div>
 
     <div class="dashboard-content-container flex-column-container" *ngIf="macroGoalsAdded; else noMacros">
-        <button mat-flat-button class="main-button log-history-button">LOG HISTORY</button>
+        <a [routerLink]="['log-history']" class="log-history-button">
+            <button mat-flat-button class="main-button">LOG HISTORY</button>
+        </a>
         <mat-divider></mat-divider>
         
         <div class="flex-row-container calorie-remainder-container">

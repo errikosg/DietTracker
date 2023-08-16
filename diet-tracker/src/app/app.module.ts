@@ -42,6 +42,9 @@ import { PercentBarComponent } from './components/percent-bar/percent-bar.compon
 import { DateHeaderComponent } from './components/date-header/date-header.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
+import { AddLogComponent } from './components/add-log/add-log.component';
+import { LogHistoryComponent } from './components/log-history/log-history.component';
+import { CalendarCardComponent } from './components/calendar-card/calendar-card.component';
 
 
 @NgModule({
@@ -77,7 +80,10 @@ import { DonutChartComponent } from './components/donut-chart/donut-chart.compon
     MeasureFormComponent,
     PercentBarComponent,
     DateHeaderComponent,
-    DonutChartComponent
+    DonutChartComponent,
+    AddLogComponent,
+    LogHistoryComponent,
+    CalendarCardComponent
   ],
   imports: [
     BrowserModule,

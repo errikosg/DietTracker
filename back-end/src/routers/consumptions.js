@@ -38,7 +38,14 @@ router.post('/', auth, async (req,res) => {
             }
             if(isFood) newEntry.foodLogs.push(newLog.log)
             else newEntry.recipeLogs.push(newLog.log)
-            resConsumptions.logEntries.push(newEntry)
+
+            // add new day sorted
+            let index = resConsumptions.logEntries.findIndex(item => newEntry.date < item.date)
+            if (index === -1) {
+                index = resConsumptions.logEntries.length;
+            }
+            resConsumptions.logEntries.splice(index, 0, newEntry);
+            // resConsumptions.logEntries.push(newEntry)
         }
         await resConsumptions.save()
         res.status(201).send(newLog);  
@@ -82,7 +89,14 @@ router.post('/multi', auth, async (req,res) => {
                 }
                 if(isFood) newEntry.foodLogs.push(newLog.log)
                 else newEntry.recipeLogs.push(newLog.log)
-                resConsumptions.logEntries.push(newEntry)
+
+                // add new day sorted
+                let index = resConsumptions.logEntries.findIndex(item => newEntry.date < item.date)
+                if (index === -1) {
+                    index = resConsumptions.logEntries.length;
+                }
+                resConsumptions.logEntries.splice(index, 0, newEntry);
+                // resConsumptions.logEntries.push(newEntry)
             }
         }
         await resConsumptions.save()
@@ -185,7 +199,7 @@ router.delete('/log/:id', auth, async (req,res) => {
     }
 })
 
-// @route   DELETE diet-tracker-api/consumptions
+// @route   DELETE diet-tracker-api/consumptions/day
 // @desc    Delete a whole day with all logs
 // @access  Private
 router.delete('/day', auth, async (req,res) => {
@@ -207,6 +221,21 @@ router.delete('/day', auth, async (req,res) => {
             res.status(200).send({msg: "Day deleted"});
         }
         else throw new Error("Day given not found")
+    }
+    catch(e) {
+        res.status(400).send({ error: e.message });
+    }
+})
+
+// @route   DELETE diet-tracker-api/consumptions
+// @desc    Delete all user consumptions
+// @access  Private
+router.delete('/', auth, async (req,res) => {
+    try {
+        const consumptions = await Consumptions.findOne({ owner : req.user._id});
+        consumptions.logEntries = [];
+        await consumptions.save();
+        res.status(200).send({msg: "User consumptions deleted"});
     }
     catch(e) {
         res.status(400).send({ error: e.message });

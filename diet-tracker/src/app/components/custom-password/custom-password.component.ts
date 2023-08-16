@@ -41,7 +41,6 @@ export class CustomPasswordComponent implements ControlValueAccessor, OnDestroy,
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['labelText'].currentValue){
-      console.log("YES")
       this.labelText = changes['labelText'].currentValue
     }
   }

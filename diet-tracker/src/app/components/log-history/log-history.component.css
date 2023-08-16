@@ -1,0 +1,55 @@
+/* .log-history-container {
+    border: 1px solid;
+} */
+
+.calendar-card-container {
+    width: 300px;
+}
+
+.main-content-container {
+    /* border: 1px solid; */
+    flex: auto;
+    padding: 10px 20px;
+}
+
+.date-header {
+    justify-content: space-evenly;
+}
+
+.day-container {
+    width: 80%;
+    margin: auto;
+}
+.day-container > h3 {
+    text-align: center;
+    font-weight:500;
+}
+
+.food {
+    width:70%;
+    margin: 0px auto 10px;
+    border-bottom: 1px solid;
+    border-radius: 4px;
+    padding: 2px;
+}
+.recipe {
+    margin-bottom: 10px;
+    border-bottom: 1px solid;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.no-consumptions{
+    width: 90%;
+    margin: 20px auto;
+}
+
+@media screen and (max-width: 700px) {
+    .log-history-container {
+        flex-direction: column;
+    }
+
+    .calendar-card-container {
+        margin: auto;
+    }
+}

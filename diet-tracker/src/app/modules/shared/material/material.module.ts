@@ -13,6 +13,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog'; 
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 import {MatSelectModule} from '@angular/material/select'; 
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCardModule} from '@angular/material/card';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -29,7 +32,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatTabsModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatCardModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialModule { }

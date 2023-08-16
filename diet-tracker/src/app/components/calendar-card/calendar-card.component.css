@@ -1,0 +1,4 @@
+::ng-deep .date-checked {
+    background: var(--check-color) !important;
+    border-radius: 100% !important;
+  }

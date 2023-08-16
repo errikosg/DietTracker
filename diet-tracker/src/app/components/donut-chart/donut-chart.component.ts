@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ApexNonAxisChartSeries, ApexChart, ApexResponsive } from 'ng-apexcharts';
 import { Subscription, skip } from 'rxjs';
 
@@ -15,7 +15,7 @@ export type ChartOptions = {
   templateUrl: './donut-chart.component.html',
   styleUrls: ['./donut-chart.component.css']
 })
-export class DonutChartComponent implements OnInit{
+export class DonutChartComponent implements OnInit, OnChanges{
   @ViewChild("chart") chart: DonutChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
@@ -50,6 +50,11 @@ export class DonutChartComponent implements OnInit{
         }
       ]
     };
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // macro values have changed
+    this.chartOptions = {...this.chartOptions, series: [+this.macroValue, +(this.macroGoalValue-this.macroValue)]}
   }
 
   getColorType(macroName: string) {

@@ -1,0 +1,43 @@
+<div class="log-history-container flex-row-container">
+    <div class="calendar-card-container">
+        <app-calendar-card *ngIf="!isLoading"
+            [selectedDate]="selectedDate" 
+            [checkedDates]="checkedDates"
+            (select)="onDateSelected($event)">
+        </app-calendar-card>
+    </div>
+    <div class="main-content-container" *ngIf="userConsumptions.length > 0; else noConsumptions">
+        <app-date-header [date]="selectedDate"></app-date-header>
+        <div class="day-container" *ngIf="loadedDay; else noLoadedDay">
+            <h3 *ngIf="loadedDay.foodLogs.length > 0">Foods logged:</h3>
+            <div class="food-list">
+                <div class="food" *ngFor="let food of loadedDay.foodLogs">
+                    <app-food-display
+                        [label]="food.label"
+                        [image]="food.image"
+                        [weight]="food.weight"
+                        [calories]="food.nutrients.calories">
+                    </app-food-display>
+                </div>
+            </div>
+            <h3 *ngIf="loadedDay.recipeLogs.length > 0">Recipes logged:</h3>
+            <div class="recipe-list">
+                <div class="recipe" *ngFor="let recipe of loadedDay.recipeLogs">
+                    <app-recipe-display
+                        [name]="recipe.name"
+                        [calories]="recipe.nutrients.calories"
+                        [ingredients]="recipe.ingredients.length">
+                    </app-recipe-display>
+                </div>
+            </div>
+        </div>
+        <ng-template #noLoadedDay>
+            <h3 class="list-error-message">No logs for selected date</h3>
+        </ng-template>
+    </div>
+    <ng-template #noConsumptions>
+        <div class="no-consumptions">
+            <h2>You have made no logs till now. Start logging your food to keep track of your progress!</h2>
+        </div>
+    </ng-template>
+</div>

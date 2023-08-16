@@ -15,14 +15,17 @@
     color: var(--main-color);
 }
 
-.dashboard-content-container {
+/* .dashboard-content-container {
     width: 90%;
     margin: auto;
-}
+} */
 
 .log-history-button {
     width: 20%;
     margin-bottom: 20px;
+}
+.log-history-button > .main-button {
+    width: 100%
 }
 
 .calorie-remainder-container {
