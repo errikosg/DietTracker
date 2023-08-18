@@ -15,14 +15,9 @@ export class CalendarCardComponent {
     this.select.emit(this.selectedDate)
   }
 
-  // change() {
-  //   this.selectedDate = new Date("2023-06-10T09:14:00.845Z")
-  //   this.select.emit(this.selectedDate)
-  // }
-
   dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
     // Only highligh dates inside the month view.
-    if (view === 'month') {
+    if (view === 'month' && this.checkedDates) {
       const year = cellDate.getFullYear()
       const month = cellDate.getMonth();
       const date = cellDate.getDate();

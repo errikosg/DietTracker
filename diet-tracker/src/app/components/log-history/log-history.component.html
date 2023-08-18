@@ -11,24 +11,32 @@
         <div class="day-container" *ngIf="loadedDay; else noLoadedDay">
             <h3 *ngIf="loadedDay.foodLogs.length > 0">Foods logged:</h3>
             <div class="food-list">
-                <div class="food" *ngFor="let food of loadedDay.foodLogs">
+                <app-log-history-item 
+                    *ngFor="let food of loadedDay.foodLogs" 
+                    [date]="selectedDate"
+                    (deleted)="onFoodDeleted($event)">
                     <app-food-display
                         [label]="food.label"
                         [image]="food.image"
                         [weight]="food.weight"
-                        [calories]="food.nutrients.calories">
+                        [calories]="food.nutrients.calories"
+                        [_id]="food._id">
                     </app-food-display>
-                </div>
+                </app-log-history-item>
             </div>
             <h3 *ngIf="loadedDay.recipeLogs.length > 0">Recipes logged:</h3>
             <div class="recipe-list">
-                <div class="recipe" *ngFor="let recipe of loadedDay.recipeLogs">
+                <app-log-history-item 
+                    *ngFor="let recipe of loadedDay.recipeLogs"
+                    [date]="selectedDate"
+                    (deleted)="onRecipeDeleted($event)">
                     <app-recipe-display
                         [name]="recipe.name"
                         [calories]="recipe.nutrients.calories"
-                        [ingredients]="recipe.ingredients.length">
+                        [ingredients]="recipe.ingredients.length"
+                        [_id]="recipe._id">
                     </app-recipe-display>
-                </div>
+                </app-log-history-item>
             </div>
         </div>
         <ng-template #noLoadedDay>

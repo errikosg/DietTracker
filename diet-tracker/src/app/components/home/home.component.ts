@@ -1,7 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
-import { faHouse, faBook, faAppleWhole, faBars, faX } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faBook, faAppleWhole,faPencil, faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { MacroGoalService } from 'src/app/services/macro-goal/macro-goal.service';
 
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
   toggled: boolean = false;
   subscription: Subscription
 
-  faHouse = faHouse; faBook=faBook; faFood=faAppleWhole;
+  faHouse = faHouse; faBook=faBook; faFood=faAppleWhole; faPencil=faPencil;
   faBars=faBars; faX=faX;
 
   constructor(

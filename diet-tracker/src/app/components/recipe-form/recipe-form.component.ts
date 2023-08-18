@@ -25,9 +25,6 @@ export class RecipeFormComponent implements OnInit, OnDestroy{
       calories: 0, protein: 0, fat: 0, carbs: 0
     }
   };
-  // macroGoals: MacroGoals = {
-  //   calories: 0, protein: 0, carbs: 0, fat:0
-  // };
   macroGoals: MacroGoals = null;
   foodPercentages = {
     calories: 0, protein: 0, carbs: 0, fat:0

@@ -1,0 +1,41 @@
+.dialog-container {
+    width: 85%;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.recipe-name{
+    text-align: center;
+}
+.measure {
+    width: 30%;
+    margin:auto;
+}
+.controls {
+    justify-content: space-between;
+}
+
+.recipe-info{
+    margin-top: 10px;
+}
+
+.controls {
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+.controls >button {
+    width: 30%;
+}
+mat-form-field {
+    width: 100%;
+}
+
+@media screen and (max-width:500px) {
+    .measure {
+        width: 100%;
+    }
+    .controls >button {
+        width: 40%;
+    }
+}

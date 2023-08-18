@@ -1,0 +1,36 @@
+.item-container {
+    border: 1px solid;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 1px;
+    justify-content: space-between;
+}
+
+.content {
+    width: 95%;
+}
+
+.control-buttons {
+    width: 5%;
+    text-align: center;
+}
+fa-icon {
+    font-size: 130%;
+    color: var(--main-color);
+    position: relative;
+    top: 35%;
+}
+fa-icon:hover {
+    color: var(--hover-color);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+    .content {
+        width: 90%;
+    }
+    
+    .control-buttons{
+        width: 10%;
+    }
+}

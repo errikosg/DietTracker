@@ -1,0 +1,113 @@
+.add-log-container {
+    padding-top: 15px;
+}
+
+.head{
+    margin-top: 15px;
+    text-align: center;
+}
+
+.date-container{
+    justify-content: center;
+}
+.change-date-button{
+    margin-top: 5px;
+    font-size: 150%;
+    color: var(--main-color)
+}
+.change-date-button:hover{
+    cursor: pointer;
+    color: var(--hover-color)
+}   
+.date-header-container{
+    /* width: 95%; */
+    margin-left: 20px;
+}
+
+.control-buttons {
+    margin-bottom: 20px;
+    justify-content: space-evenly;
+}
+.control-buttons > button {
+    width: 20%;
+}
+
+.tabs-container {
+    width: 95%;
+    margin:auto;
+}
+
+.food-content-container{
+    width: 80%;
+    margin: 10px auto;
+}
+.search-controls {
+    justify-content: space-between;
+}
+
+.main-button, .clear-button {
+    width: 20%;
+}
+
+.food-list {
+    padding: 20px 20px 0px;
+    width: 60%;
+    margin: auto;
+}
+.food-item {
+    border: 1px solid;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+.plus-button {
+    position:relative;
+    top: 20px;
+}
+
+mat-paginator {
+    margin-top: 30px;
+    background-color: transparent;
+}
+mat-spinner {
+    margin: auto;
+}
+:host::ng-deep .mdc-circular-progress__indeterminate-circle-graphic {
+    stroke: var(--main-color) !important;
+}
+
+.recipe-list{
+    width: 60%;
+    margin: auto;
+    padding: 20px 20px 0px;
+}
+
+.recipe-item{
+    border: 1px solid;
+    border-radius: 8px;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    padding:2px 10px 2px 2px;
+}
+.recipe-item > .display{
+    width: 85%;
+}
+
+@media screen and (max-width: 850px) {
+    .food-list {
+        padding: 20px 20px 0px;
+        width: 90%;
+        margin: auto;
+    }
+
+    .recipe-item{
+        width: 100%;
+    }
+
+    .recipe-list{
+        padding: 0px;
+    }
+}

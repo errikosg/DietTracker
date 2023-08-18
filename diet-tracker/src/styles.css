@@ -46,6 +46,10 @@ h2 {
   border: 1px solid #aaa !important;
 }
 
+.plus-button {
+  width: 40px !important;
+}
+
 /* containers */
 .flex-row-container {
   display: flex;

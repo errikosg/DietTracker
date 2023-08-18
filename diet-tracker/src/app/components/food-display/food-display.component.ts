@@ -10,4 +10,5 @@ export class FoodDisplayComponent {
   @Input() image: string;
   @Input() calories: string;
   @Input() weight: string;
+  @Input() _id: string; //for content
 }

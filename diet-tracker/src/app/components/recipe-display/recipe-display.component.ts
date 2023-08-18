@@ -9,4 +9,5 @@ export class RecipeDisplayComponent {
   @Input() name: string;
   @Input() calories: number;
   @Input() ingredients: number;
+  @Input() _id: string; //for content
 }

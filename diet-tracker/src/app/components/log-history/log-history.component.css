@@ -25,7 +25,7 @@
     font-weight:500;
 }
 
-.food {
+/* .food {
     width:70%;
     margin: 0px auto 10px;
     border-bottom: 1px solid;
@@ -37,6 +37,12 @@
     border-bottom: 1px solid;
     border-radius: 4px;
     padding: 2px;
+} */
+
+.food-list, .recipe-list {
+    /* border: 1px solid; */
+    width: 70%;
+    margin: auto;
 }
 
 .no-consumptions{

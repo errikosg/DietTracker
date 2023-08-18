@@ -12,10 +12,12 @@
         
         <div class="flex-row-container calorie-remainder-container">
             <h3 class="calorie-header">
-                <span class="remain-calories" [ngStyle]="{color: getCalorieColor()}">{{remainCalories}}</span>
+                <span class="remain-calories" [ngStyle]="{color: getCalorieColor()}">{{remainCalories | number: '1.0-0'}}</span>
                  kcal remain for today
             </h3>
-            <button mat-flat-button class="main-button">+ ADD LOG</button>
+            <a [routerLink]="['add-log']" class="add-log-button">
+                <button mat-flat-button class="main-button">+ ADD LOG</button>
+            </a>
         </div>
 
         <div class="flex-column-container donut-charts-container" *ngIf="consumptions!==null; else noConsumptions">

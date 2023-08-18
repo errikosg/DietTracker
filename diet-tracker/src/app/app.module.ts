@@ -45,6 +45,9 @@ import { DonutChartComponent } from './components/donut-chart/donut-chart.compon
 import { AddLogComponent } from './components/add-log/add-log.component';
 import { LogHistoryComponent } from './components/log-history/log-history.component';
 import { CalendarCardComponent } from './components/calendar-card/calendar-card.component';
+import { CalendarDialogComponent } from './components/calendar-dialog/calendar-dialog.component';
+import { RecipeDialogComponent } from './components/recipe-dialog/recipe-dialog.component';
+import { LogHistoryItemComponent } from './components/log-history-item/log-history-item.component';
 
 
 @NgModule({
@@ -83,7 +86,10 @@ import { CalendarCardComponent } from './components/calendar-card/calendar-card.
     DonutChartComponent,
     AddLogComponent,
     LogHistoryComponent,
-    CalendarCardComponent
+    CalendarCardComponent,
+    CalendarDialogComponent,
+    RecipeDialogComponent,
+    LogHistoryItemComponent
   ],
   imports: [
     BrowserModule,

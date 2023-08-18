@@ -1,0 +1,27 @@
+<div class="dialog-container flex-column-container">
+    <div class="measure-form flex-column-container">
+        <h2 class="recipe-name">{{recipe.name}}</h2>
+        <div class="measure">
+            <mat-form-field>
+                <mat-label># of portions</mat-label>
+                <input matInput
+                    type="number"
+                    min="0"
+                    step="1"
+                    name="portions"
+                    [(ngModel)]="portions"
+                    >
+                <mat-error *ngIf="!(portions > 0)">
+                    Please enter a correct value
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="recipe-info">
+        <app-food-info [nutrients]="recipe.nutrients" [grams]="portions*100"></app-food-info>
+    </div>
+    <div class="controls flex-row-container">
+        <button mat-stroked-button class="cancel-button" (click)="onCancel()">CANCEL</button>
+        <button mat-flat-button class="main-button" (click)="onSubmit()">+ ADD RECIPE</button>
+    </div>
+</div>

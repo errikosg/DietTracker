@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Consumptions } from 'src/app/models/Consumption';
 import { ConsumptionService } from 'src/app/services/consumption/consumption.service';
-import { PageEvent } from '@angular/material/paginator';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-log-history',
@@ -14,6 +14,7 @@ export class LogHistoryComponent implements OnInit{
   checkedDates: Date[] = [];
   loadedDay:Consumptions = null;
   selectedDate: Date | null = new Date();
+  faTrash=faTrash;
 
   constructor(
     private consumptionService: ConsumptionService
@@ -39,6 +40,13 @@ export class LogHistoryComponent implements OnInit{
     this.selectedDate = date;
     // load selected date's consumption
     this.loadedDay = this.userConsumptions.find(item => this.areDatesSameDay(new Date(item.date), this.selectedDate))
+  }
+
+  onFoodDeleted(foodId: string) {
+    this.loadedDay.foodLogs = this.loadedDay.foodLogs.filter(log => log._id!==foodId)
+  }
+  onRecipeDeleted(recipeId: string) {
+    this.loadedDay.recipeLogs = this.loadedDay.recipeLogs.filter(log => log._id!==recipeId)
   }
 
   // helper

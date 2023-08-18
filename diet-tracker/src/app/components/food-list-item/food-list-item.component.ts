@@ -5,6 +5,8 @@ import { RecipeService } from 'src/app/services/recipe/recipe.service';
 import { FoodDialogComponent } from '../food-dialog/food-dialog.component';
 import { EditingRecipeService } from 'src/app/services/editing-recipe/editing-recipe.service';
 import { Router } from '@angular/router';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-food-list-item',
@@ -13,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class FoodListItemComponent {
   @Input() food: Food;
+  faPlus=faPlus;
 
   constructor(
     private editingRecipeService: EditingRecipeService,

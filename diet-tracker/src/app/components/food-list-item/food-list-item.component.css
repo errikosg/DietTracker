@@ -2,7 +2,7 @@
     width: 100%;
     margin:auto;
     justify-content: space-between;
-    padding-left: 10px;
+    padding:0px 10px;
     border: 1px solid;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -11,25 +11,40 @@
     width: 85%;
 }
 
-.add-button {
+/* .add-button {
     width: 15%;
 }
 .add-button>button {
     margin: auto;
     display: block;
     margin-top: 40px;
-}
-@media screen and (max-width: 950px) {
+} */
+/* @media screen and (max-width: 950px) {
     .add-button>button {
         margin-top: 20px;
     }
+} */
+
+.plus-button {
+    position:relative;
+    top: 30px;
 }
+
 @media screen and (max-width: 700px) {
     .container {
         flex-direction: column;
         padding: 5px;
     }
-    .add-button {
-        width: 100%;
-    }
+    .plus-button {
+        position:relative;
+        top: 0px !important;
+        left: 45%;
+        margin-top: 5px;
+    }    
+}
+
+@media screen and (max-width: 1000px) {
+    .plus-button {
+        top: 15px;
+    }    
 }

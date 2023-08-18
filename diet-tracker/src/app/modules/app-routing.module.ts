@@ -10,6 +10,7 @@ import { FoodBaseListComponent } from '../components/foodbase/foodbase-list/food
 import { RecipeFormComponent } from '../components/recipe-form/recipe-form.component';
 import { AddIngredientFormComponent } from '../components/add-ingredient-form/add-ingredient-form.component';
 import { LogHistoryComponent } from '../components/log-history/log-history.component';
+import { AddLogComponent } from '../components/add-log/add-log.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
       ] },
     ] },
     { path: 'foodbase', component: FoodBaseListComponent, canActivate: [AuthGuardService] },
-    { path: 'log-history', component: LogHistoryComponent, canActivate: [AuthGuardService] }
+    { path: 'log-history', component: LogHistoryComponent, canActivate: [AuthGuardService] },
+    { path: 'add-log', component: AddLogComponent, canActivate: [AuthGuardService] }
   ] },
 ]
 

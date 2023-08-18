@@ -10,6 +10,12 @@
                 </a>
             </div>
             <div>
+                <a [routerLink]="['log-history']" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+                    <fa-icon [icon]="faPencil"></fa-icon>
+                    Log History
+                </a>
+            </div>
+            <div>
                 <a [routerLink]="['recipes']" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
                     <fa-icon [icon]="faBook"></fa-icon>
                     Recipe Discovery
