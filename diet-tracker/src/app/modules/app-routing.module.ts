@@ -12,11 +12,12 @@ import { AddIngredientFormComponent } from '../components/add-ingredient-form/ad
 import { AddLogComponent } from '../components/add-log/add-log.component';
 import { NotFoundComponent } from '../components/not-found/not-found.component';
 import { MacroGoalResolver } from '../services/resolvers/macro-goal-resolver.service';
+import { ConsumptionsResolverService } from '../services/resolvers/consumptions-resolver.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '', component: HomeComponent, canActivate: [AuthGuardService], resolve:{macroGoals: MacroGoalResolver}, children: [
-    { path: '', component: DashboardComponent, canActivate: [AuthGuardService] },
+    { path: '', component: DashboardComponent, canActivate: [AuthGuardService], resolve:{consumptions: ConsumptionsResolverService} },
     { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
     { path: 'recipes', children:[
       { path: '', component: RecipesComponent, canActivate: [AuthGuardService] },

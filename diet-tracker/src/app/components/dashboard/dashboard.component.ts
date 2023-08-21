@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Data } from '@angular/router';
 import { Subscription, switchMap } from 'rxjs';
 import { Consumptions } from 'src/app/models/Consumption';
 import { MacroGoals } from 'src/app/models/MacroGoals';
-import { ConsumptionService } from 'src/app/services/consumption/consumption.service';
 import { MacroGoalService } from 'src/app/services/macro-goal/macro-goal.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit, OnDestroy{
 
   constructor(
     private macroGoalService: MacroGoalService,
-    private consumptionService: ConsumptionService
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -35,9 +35,10 @@ export class DashboardComponent implements OnInit, OnDestroy{
           this.userMacroGoals = macros
           this.macroGoalsAdded = true;
         }
-        return this.consumptionService.getTodaysConsumptions()
+        return this.route.data
       })
-    ).subscribe(cons => {
+    ).subscribe((data:Data) => {
+        const cons = data['consumptions']
         if(cons !== null){
           this.consumptions = cons;
           this.remainCalories = this.calcRemainCalories()

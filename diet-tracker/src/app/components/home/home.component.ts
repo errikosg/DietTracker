@@ -1,7 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Data } from '@angular/router';
 import { faHouse, faBook, faAppleWhole,faPencil, faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
 
   ngOnInit(): void {
     // use resolver to load data 
-    this.route.data.subscribe(data => console.log(data['macroGoals']))
+    this.route.data.subscribe((data:Data) => console.log(data['macroGoals']))
   }
 
   ngAfterViewInit(): void {

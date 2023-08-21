@@ -3,8 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Consumptions } from 'src/app/models/Consumption';
 import { ConsumptionItem } from 'src/app/models/ConsumptionItem';
-import { Food } from 'src/app/models/Food';
-import { Recipe } from 'src/app/models/Recipe';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
