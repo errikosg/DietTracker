@@ -24,10 +24,8 @@ import { FoodListItemComponent } from './components/food-list-item/food-list-ite
 import { FoodDialogComponent } from './components/food-dialog/food-dialog.component';
 import { MeasureFormComponent } from './components/measure-form/measure-form.component';
 import { AddLogComponent } from './components/add-log/add-log.component';
-import { LogHistoryComponent } from './components/log-history/log-history.component';
 import { CalendarDialogComponent } from './components/calendar-dialog/calendar-dialog.component';
 import { RecipeDialogComponent } from './components/recipe-dialog/recipe-dialog.component';
-import { LogHistoryItemComponent } from './components/log-history-item/log-history-item.component';
 import { FoodModule } from './modules/shared/food/food.module';
 import { MacroModule } from './modules/shared/macro/macro.module';
 import { FontsModule } from './modules/shared/fonts/fonts.module';

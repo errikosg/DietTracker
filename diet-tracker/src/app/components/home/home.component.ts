@@ -1,9 +1,9 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
+import { ActivatedRoute } from '@angular/router';
 import { faHouse, faBook, faAppleWhole,faPencil, faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
-import { MacroGoalService } from 'src/app/services/macro-goal/macro-goal.service';
 
 @Component({
   selector: 'app-home',
@@ -19,12 +19,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
   faBars=faBars; faX=faX;
 
   constructor(
-    private macroGoalService: MacroGoalService,
-    private observer: BreakpointObserver
+    private observer: BreakpointObserver,
+    private route: ActivatedRoute
   ){}
 
   ngOnInit(): void {
-    this.macroGoalService.getMacroGoals().subscribe();
+    // use resolver to load data 
+    this.route.data.subscribe(data => console.log(data['macroGoals']))
   }
 
   ngAfterViewInit(): void {

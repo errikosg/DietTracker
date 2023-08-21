@@ -9,13 +9,13 @@ import { RecipesComponent } from '../components/recipes/recipes.component';
 import { FoodBaseListComponent } from '../components/foodbase/foodbase-list/foodbase-list.component';
 import { RecipeFormComponent } from '../components/recipe-form/recipe-form.component';
 import { AddIngredientFormComponent } from '../components/add-ingredient-form/add-ingredient-form.component';
-import { LogHistoryComponent } from '../components/log-history/log-history.component';
 import { AddLogComponent } from '../components/add-log/add-log.component';
 import { NotFoundComponent } from '../components/not-found/not-found.component';
+import { MacroGoalResolver } from '../services/resolvers/macro-goal-resolver.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: '', component: HomeComponent, canActivate: [AuthGuardService], children: [
+  { path: '', component: HomeComponent, canActivate: [AuthGuardService], resolve:{macroGoals: MacroGoalResolver}, children: [
     { path: '', component: DashboardComponent, canActivate: [AuthGuardService] },
     { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
     { path: 'recipes', children:[
