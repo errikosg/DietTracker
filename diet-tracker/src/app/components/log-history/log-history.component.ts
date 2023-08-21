@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Consumptions } from 'src/app/models/Consumption';
 import { ConsumptionService } from 'src/app/services/consumption/consumption.service';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { ActivatedRoute, Data } from '@angular/router';
 
 @Component({
   selector: 'app-log-history',
@@ -17,22 +18,23 @@ export class LogHistoryComponent implements OnInit{
   faTrash=faTrash;
 
   constructor(
-    private consumptionService: ConsumptionService
+    private route: ActivatedRoute
   ){}
 
   ngOnInit(): void {
-    this.consumptionService.getAllConsumptions().subscribe(cons => {
-      if(cons.length > 0){
-        this.userConsumptions = cons
+    this.route.data.subscribe((data:Data) => {
+      const cons = data['consumptions']
+        if(cons.length > 0){
+          this.userConsumptions = cons
 
-        // add days with logs
-        for(let c of cons){
-          this.checkedDates.push(new Date(c.date))
+          // add days with logs
+          for(let c of cons){
+            this.checkedDates.push(new Date(c.date))
+          }
+          // load today's consumption if exists
+          this.loadedDay = cons.find(item => this.areDatesSameDay(new Date(item.date), this.selectedDate))
         }
-        // load today's consumption if exists
-        this.loadedDay = cons.find(item => this.areDatesSameDay(new Date(item.date), this.selectedDate))
-      }
-      this.isLoading = false;
+        this.isLoading = false;
     })
   }
 
