@@ -2,13 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, map } from 'rxjs';
 import { Recipe } from 'src/app/models/Recipe';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
-  private serverURL: string = "http://localhost:3001/diet-tracker-api"
-  private url = `${this.serverURL}/recipes`
+  private url = `${environment.serverURL}/recipes`
   private httpOptions = {
     headers : new HttpHeaders ({
       'Content-type': 'application/json; charset=UTF-8'

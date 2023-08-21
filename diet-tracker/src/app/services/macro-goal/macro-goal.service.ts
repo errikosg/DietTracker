@@ -2,13 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { MacroGoals } from 'src/app/models/MacroGoals';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MacroGoalService {
-  private serverURL: string = "http://localhost:3001/diet-tracker-api"
-  private url = `${this.serverURL}/macro-goals`
+  private url = `${environment.serverURL}/macro-goals`
   private httpOptions = {
     headers : new HttpHeaders ({
       'Content-type': 'application/json; charset=UTF-8'

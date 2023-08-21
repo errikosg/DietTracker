@@ -5,16 +5,17 @@ import { map } from 'rxjs/operators';
 import { Measure } from '../../models/Measure';
 import { Nutrients } from "../../models/Nutrients";
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class FoodAPIService {
-  foodbaseURL: string = "https://api.edamam.com/api/food-database/v2/parser"
+  foodbaseURL: string = environment.foodbaseURL;
   private searchParams = new HttpParams()
-    .set("app_id", "945d4415")
-    .set("app_key","d04242888de640d321df51a3c7db7fe9")
+    .set("app_id", environment.foodbaseAppId)
+    .set("app_key",environment.foodbaseAppKey)
     .set("nutrition-type","cooking")
     .set("category","generic-foods")
   

@@ -5,13 +5,13 @@ import { Consumptions } from 'src/app/models/Consumption';
 import { ConsumptionItem } from 'src/app/models/ConsumptionItem';
 import { Food } from 'src/app/models/Food';
 import { Recipe } from 'src/app/models/Recipe';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConsumptionService {
-  private serverURL: string = "http://localhost:3001/diet-tracker-api"
-  private url = `${this.serverURL}/consumptions`
+  private url = `${environment.serverURL}/consumptions`
   private httpOptions = {
     headers : new HttpHeaders ({
       'Content-type': 'application/json; charset=UTF-8'

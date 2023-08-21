@@ -4,12 +4,13 @@ import { User } from '../../models/User';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { ResponseDataFormat } from 'src/app/models/ResponseDataFormat';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private serverURL: string = "http://localhost:3001/diet-tracker-api"
+  private serverURL = environment.serverURL;
   currentUser$ = new BehaviorSubject<User>(null);
   private httpOptions = {
     headers : new HttpHeaders ({

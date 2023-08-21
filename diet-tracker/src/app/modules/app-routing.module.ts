@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../components/home/home.component';
 import { AuthGuardService } from '../services/auth-guard/auth-guard.service';
 import { ProfileComponent } from '../components/profile/profile.component';
@@ -11,12 +11,13 @@ import { RecipeFormComponent } from '../components/recipe-form/recipe-form.compo
 import { AddIngredientFormComponent } from '../components/add-ingredient-form/add-ingredient-form.component';
 import { LogHistoryComponent } from '../components/log-history/log-history.component';
 import { AddLogComponent } from '../components/add-log/add-log.component';
+import { NotFoundComponent } from '../components/not-found/not-found.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '', component: HomeComponent, canActivate: [AuthGuardService], children: [
     { path: '', component: DashboardComponent, canActivate: [AuthGuardService] },
-    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+    { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
     { path: 'recipes', children:[
       { path: '', component: RecipesComponent, canActivate: [AuthGuardService] },
       { path: 'edit', children:[
@@ -24,9 +25,10 @@ const appRoutes: Routes = [
         { path: 'add-ingredient', component: AddIngredientFormComponent, canActivate: [AuthGuardService] }
       ] },
     ] },
-    { path: 'foodbase', component: FoodBaseListComponent, canActivate: [AuthGuardService] },
-    { path: 'log-history', component: LogHistoryComponent, canActivate: [AuthGuardService] },
-    { path: 'add-log', component: AddLogComponent, canActivate: [AuthGuardService] }
+    { path: 'foodbase', loadChildren: () => import('./foodbase/foodbase.module').then(m => m.FoodbaseModule) },
+    { path: 'log-history', loadChildren: () => import('./log-history/log-history.module').then(m => m.LogHistoryModule) },
+    { path: 'add-log', component: AddLogComponent, canActivate: [AuthGuardService] },
+    { path: '**', component: NotFoundComponent, pathMatch: 'full', canActivate: [AuthGuardService] }
   ] },
 ]
 
@@ -34,7 +36,7 @@ const appRoutes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})
   ],
   exports: [
     RouterModule
